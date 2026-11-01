@@ -1,0 +1,1188 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Isla La Porcada · Energía y Autosuficiencia · Mar a Lago del Pacífico (Standalone) / Energy &amp; Self-Sufficiency (Standalone)</title>
+  <meta name="author" content="Z.ai">
+  <meta name="description" content="Capítulo de Energía y Autosuficiencia para la visión Mar a Lago del Pacífico · Plan Director Isla La Porcada / Energy and Self-Sufficiency chapter for the Mar a Lago del Pacifico vision · Isla La Porcada Master Plan">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&family=Playfair+Display:wght@400;700;900&display=swap" rel="stylesheet">
+  <style>
+/* ============= Reset & Base ============= */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: #fafafa;
+  color: #1a1a1a;
+  line-height: 1.7;
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ============= Color System ============= */
+:root {
+  --navy: #0a1628;
+  --navy-light: #142840;
+  --gold: #c9a449;
+  --gold-light: #e8c574;
+  --cream: #faf8f3;
+  --cream-dark: #f0ece2;
+  --text-primary: #1a1a1a;
+  --text-muted: #5a5a5a;
+  --text-light: #8a8a8a;
+  --border: #d8d2c2;
+  --accent: #92761f;
+  --bg-section: #ffffff;
+  --bg-alt: #f5f5f4;
+  --shadow: 0 4px 20px rgba(10, 22, 40, 0.08);
+  --shadow-lg: 0 8px 40px rgba(10, 22, 40, 0.12);
+  --ok: #2c5f3f;
+  --ok-light: #e6f0ea;
+  --info: #1f4e6b;
+  --info-light: #e3eef4;
+}
+
+/* ============= Top Bar ============= */
+.top-bar {
+  position: fixed; top: 0; left: 0; right: 0;
+  height: 64px;
+  background: var(--navy); color: white;
+  z-index: 1000;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+  display: flex; align-items: center;
+  padding: 0 32px; justify-content: space-between;
+}
+.top-bar .brand { display: flex; align-items: center; gap: 12px; }
+.top-bar .brand-mark {
+  width: 28px; height: 28px;
+  background: var(--gold); border-radius: 2px;
+  display: flex; align-items: center; justify-content: center;
+  color: var(--navy); font-weight: 900; font-size: 14px; letter-spacing: -0.5px;
+}
+.top-bar .brand-text { font-size: 14px; font-weight: 500; letter-spacing: 0.5px; }
+.top-bar .brand-text strong { color: var(--gold-light); font-weight: 700; }
+.top-bar .actions { display: flex; gap: 8px; align-items: center; }
+.lang-toggle {
+  display: flex;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 4px; overflow: hidden;
+}
+.lang-btn {
+  padding: 7px 14px; background: transparent;
+  color: rgba(255,255,255,0.6); border: none; cursor: pointer;
+  font-size: 12px; font-weight: 600; letter-spacing: 0.5px;
+  transition: all 0.2s; font-family: inherit;
+}
+.lang-btn:hover { color: white; background: rgba(255,255,255,0.05); }
+.lang-btn.active { background: var(--gold); color: var(--navy); }
+.btn-print {
+  padding: 7px 14px; background: rgba(255,255,255,0.08);
+  color: rgba(255,255,255,0.8); border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 4px; cursor: pointer; font-size: 12px; font-weight: 500; font-family: inherit;
+}
+.btn-print:hover { color: white; background: rgba(255,255,255,0.15); }
+
+/* ============= Layout ============= */
+.main {
+  margin-top: 64px;
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  max-width: 1440px;
+  margin-left: auto; margin-right: auto;
+}
+
+/* ============= Sidebar Nav ============= */
+.sidebar {
+  position: sticky; top: 64px;
+  height: calc(100vh - 64px);
+  overflow-y: auto;
+  background: var(--navy);
+  color: rgba(255,255,255,0.7);
+  padding: 24px 0;
+  font-size: 13px;
+}
+.sidebar h4 {
+  color: var(--gold);
+  font-size: 11px; font-weight: 700;
+  letter-spacing: 2px; text-transform: uppercase;
+  padding: 0 20px 10px 20px; margin-bottom: 8px;
+  border-bottom: 1px solid rgba(201, 164, 73, 0.2);
+}
+.sidebar h4 .es-text, .sidebar h4 .en-text { display: inline; }
+.sidebar ul { list-style: none; padding: 0; }
+.sidebar li {
+  padding: 7px 20px; cursor: pointer;
+  border-left: 2px solid transparent;
+  transition: all 0.15s; font-size: 13px;
+}
+.sidebar li .es-text, .sidebar li .en-text { display: block; }
+.sidebar li:hover { color: white; background: rgba(255,255,255,0.04); border-left-color: var(--gold); }
+.sidebar li.active { color: white; background: rgba(201, 164, 73, 0.08); border-left-color: var(--gold); }
+
+/* ============= Content ============= */
+.content { padding: 60px 80px 100px 80px; max-width: 1000px; }
+
+/* ============= Hero ============= */
+.hero {
+  background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+  color: white;
+  padding: 80px 60px;
+  margin: -60px -80px 50px -80px;
+  position: relative; overflow: hidden;
+}
+.hero::before {
+  content: ''; position: absolute;
+  top: 0; right: 0;
+  width: 240px; height: 240px;
+  background: radial-gradient(circle, rgba(201, 164, 73, 0.18) 0%, transparent 70%);
+}
+.hero::after {
+  content: ''; position: absolute;
+  bottom: -80px; left: -40px;
+  width: 200px; height: 200px;
+  background: radial-gradient(circle, rgba(201, 164, 73, 0.10) 0%, transparent 70%);
+}
+.hero-kicker {
+  font-size: 12px; color: var(--gold);
+  letter-spacing: 4px; text-transform: uppercase;
+  font-weight: 600; margin-bottom: 24px;
+  position: relative; z-index: 1;
+}
+.hero h1 {
+  font-size: 52px; font-weight: 900;
+  letter-spacing: -1px; line-height: 1.05;
+  margin-bottom: 20px;
+  position: relative; z-index: 1;
+}
+.hero h1 .accent { color: var(--gold); }
+.hero-subtitle {
+  font-size: 21px; font-weight: 300;
+  color: rgba(255,255,255,0.85);
+  margin-bottom: 40px; max-width: 720px;
+  position: relative; z-index: 1;
+}
+.hero-meta {
+  display: flex; gap: 40px;
+  margin-top: 30px; padding-top: 30px;
+  border-top: 1px solid rgba(255,255,255,0.15);
+  flex-wrap: wrap;
+  position: relative; z-index: 1;
+}
+.hero-meta .item { font-size: 13px; color: rgba(255,255,255,0.65); }
+.hero-meta .item strong {
+  display: block; color: var(--gold-light);
+  font-size: 28px; font-weight: 700; margin-bottom: 4px;
+  font-family: 'Playfair Display', serif;
+}
+.hero-meta .item .label {
+  letter-spacing: 1px; text-transform: uppercase; font-size: 10px;
+}
+
+/* ============= Chapters ============= */
+.chapter {
+  margin-bottom: 60px;
+  padding-bottom: 40px;
+  border-bottom: 1px solid var(--border);
+  scroll-margin-top: 80px;
+}
+.chapter:last-child { border-bottom: none; }
+.chapter h2.chapter-title {
+  font-size: 32px; font-weight: 700;
+  color: var(--navy);
+  letter-spacing: -0.5px;
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 3px solid var(--gold);
+  display: inline-block;
+}
+.chapter h3 {
+  font-size: 20px; font-weight: 700;
+  color: var(--navy);
+  margin-top: 32px; margin-bottom: 12px;
+  letter-spacing: -0.2px;
+}
+.chapter h4 {
+  font-size: 12px; font-weight: 700;
+  color: var(--accent);
+  margin-top: 20px; margin-bottom: 8px;
+  letter-spacing: 0.3px; text-transform: uppercase;
+}
+.chapter p {
+  font-size: 15px; line-height: 1.75;
+  margin-bottom: 16px;
+  color: var(--text-primary);
+  text-align: justify;
+}
+.chapter ul.bullets { list-style: none; padding-left: 0; margin-bottom: 16px; }
+.chapter ul.bullets li {
+  padding: 6px 0 6px 24px;
+  position: relative;
+  font-size: 14.5px; line-height: 1.6;
+  color: var(--text-primary);
+}
+.chapter ul.bullets li::before {
+  content: '▸'; position: absolute;
+  left: 8px; top: 7px;
+  color: var(--gold); font-weight: bold;
+}
+.chapter ol.bullets {
+  list-style: none; counter-reset: step;
+  padding-left: 0; margin: 16px 0;
+}
+.chapter ol.bullets li {
+  counter-increment: step;
+  padding: 8px 0 8px 38px;
+  position: relative;
+  font-size: 14.5px; line-height: 1.6;
+  color: var(--text-primary);
+}
+.chapter ol.bullets li::before {
+  content: counter(step, decimal-leading-zero);
+  position: absolute;
+  left: 0; top: 7px;
+  width: 28px; height: 24px;
+  background: var(--navy); color: var(--gold);
+  font-family: 'Playfair Display', serif;
+  font-size: 12px; font-weight: 700;
+  display: flex; align-items: center; justify-content: center;
+  border-radius: 2px;
+}
+
+/* ============= Bilingual Toggle ============= */
+.es-text { display: block; }
+.en-text { display: none; }
+body.lang-en .es-text { display: none; }
+body.lang-en .en-text { display: block; }
+
+/* ============= Tables ============= */
+.tbl {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 24px 0;
+  font-size: 13px;
+  box-shadow: var(--shadow);
+  background: white;
+}
+.tbl thead th {
+  background: var(--navy); color: white;
+  padding: 12px 14px; text-align: left;
+  font-weight: 600; font-size: 12px;
+  letter-spacing: 0.5px; text-transform: uppercase;
+  border-bottom: 2px solid var(--gold);
+}
+.tbl tbody td {
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--border);
+  color: var(--text-primary);
+  vertical-align: top;
+}
+.tbl tbody tr:nth-child(even) { background: var(--bg-alt); }
+.tbl tbody tr:hover { background: var(--cream); }
+.tbl-caption {
+  margin-top: 8px;
+  font-size: 12px;
+  color: var(--text-muted);
+  font-style: italic;
+  text-align: center;
+  letter-spacing: 0.3px;
+}
+
+/* ============= Callouts ============= */
+.callouts-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin: 30px 0;
+}
+.callout-card {
+  background: var(--navy); color: white;
+  padding: 24px 16px;
+  border-radius: 4px; text-align: center;
+  border: 1px solid var(--gold);
+  border-top: 3px solid var(--gold);
+}
+.callout-card .num {
+  font-size: 30px; font-weight: 700;
+  color: var(--gold-light);
+  font-family: 'Playfair Display', serif;
+  line-height: 1; margin-bottom: 8px;
+}
+.callout-card .lbl {
+  font-size: 11px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.7);
+  font-weight: 500;
+}
+
+/* ============= Info Boxes ============= */
+.info-box {
+  background: var(--cream);
+  border-left: 4px solid var(--gold);
+  padding: 18px 22px;
+  margin: 24px 0;
+  border-radius: 0 4px 4px 0;
+}
+.info-box h5 {
+  font-size: 12px; font-weight: 700;
+  color: var(--accent);
+  letter-spacing: 1px; text-transform: uppercase;
+  margin-bottom: 8px;
+}
+.info-box p { margin-bottom: 0; font-size: 14px; }
+.info-box.ok { background: var(--ok-light); border-left-color: var(--ok); }
+.info-box.ok h5 { color: var(--ok); }
+.info-box.info { background: var(--info-light); border-left-color: var(--info); }
+.info-box.info h5 { color: var(--info); }
+
+/* ============= Energy Mix Bar ============= */
+.mix-bar {
+  margin: 24px 0;
+  background: white;
+  padding: 24px;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+}
+.mix-bar-title {
+  font-size: 12px; font-weight: 700;
+  color: var(--accent);
+  letter-spacing: 1px; text-transform: uppercase;
+  margin-bottom: 14px;
+}
+.mix-bar-track {
+  display: flex;
+  height: 38px;
+  border-radius: 4px;
+  overflow: hidden;
+  box-shadow: inset 0 0 0 1px var(--border);
+}
+.mix-segment {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  transition: opacity 0.2s;
+}
+.mix-segment:hover { opacity: 0.85; }
+.mix-legend {
+  display: flex;
+  gap: 18px;
+  flex-wrap: wrap;
+  margin-top: 14px;
+  font-size: 12px;
+  color: var(--text-muted);
+}
+.mix-legend-item {
+  display: flex; align-items: center; gap: 6px;
+}
+.mix-legend-item .swatch {
+  width: 12px; height: 12px;
+  border-radius: 2px;
+}
+
+/* ============= Layer Diagram (Energy Cascade) ============= */
+.layer-stack {
+  display: flex; flex-direction: column;
+  gap: 6px; margin: 24px 0;
+}
+.layer-row {
+  display: grid;
+  grid-template-columns: 60px 1fr 140px;
+  gap: 14px; align-items: center;
+  padding: 14px 16px;
+  background: white;
+  border-left: 4px solid var(--gold);
+  box-shadow: var(--shadow);
+  border-radius: 0 4px 4px 0;
+}
+.layer-row .layer-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 26px; font-weight: 700;
+  color: var(--gold);
+  text-align: center;
+}
+.layer-row .layer-body .layer-title {
+  font-size: 14px; font-weight: 700;
+  color: var(--navy); margin-bottom: 2px;
+}
+.layer-row .layer-body .layer-desc {
+  font-size: 12.5px; color: var(--text-muted);
+  line-height: 1.5;
+}
+.layer-row .layer-tag {
+  font-size: 10px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--accent);
+  font-weight: 700;
+  text-align: right;
+}
+
+/* ============= Org Chart (Energy Governance) ============= */
+.org-chart {
+  margin: 24px 0;
+  padding: 24px;
+  background: var(--bg-alt);
+  border-radius: 6px;
+  border: 1px solid var(--border);
+}
+.org-level {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-bottom: 18px;
+  position: relative;
+}
+.org-level:last-child { margin-bottom: 0; }
+.org-level::after {
+  content: '';
+  position: absolute;
+  bottom: -10px; left: 50%;
+  transform: translateX(-50%);
+  width: 2px; height: 10px;
+  background: var(--gold);
+}
+.org-level:last-child::after { display: none; }
+.org-node {
+  background: white;
+  border: 1px solid var(--border);
+  border-top: 3px solid var(--gold);
+  padding: 10px 16px;
+  border-radius: 4px;
+  text-align: center;
+  min-width: 140px;
+  box-shadow: var(--shadow);
+}
+.org-node.top {
+  background: var(--navy);
+  color: white;
+  border-top-color: var(--gold);
+}
+.org-node .org-role {
+  font-size: 12px; font-weight: 700;
+  margin-bottom: 2px;
+}
+.org-node .org-name {
+  font-size: 10.5px;
+  color: var(--text-muted);
+  letter-spacing: 0.3px;
+}
+.org-node.top .org-name { color: var(--gold-light); }
+
+/* ============= KPI Grid ============= */
+.kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  margin: 24px 0;
+}
+.kpi-card {
+  background: white;
+  padding: 18px 16px;
+  border-radius: 4px;
+  border: 1px solid var(--border);
+  border-top: 3px solid var(--navy);
+  box-shadow: var(--shadow);
+}
+.kpi-card .kpi-name {
+  font-size: 11px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+.kpi-card .kpi-target {
+  font-size: 22px;
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 4px;
+}
+.kpi-card .kpi-note {
+  font-size: 11.5px;
+  color: var(--text-light);
+  line-height: 1.4;
+}
+
+/* ============= Conclusion ============= */
+.conclusion {
+  background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+  color: white;
+  padding: 50px 50px;
+  margin: 50px -80px -100px -80px;
+  border-top: 4px solid var(--gold);
+}
+.conclusion h2 {
+  color: var(--gold);
+  font-size: 28px;
+  margin-bottom: 24px;
+  font-weight: 700;
+}
+.conclusion p {
+  color: rgba(255,255,255,0.85);
+  font-size: 15px;
+  margin-bottom: 14px;
+  line-height: 1.75;
+}
+
+/* ============= Footer ============= */
+.footer-bar {
+  background: var(--navy);
+  color: rgba(255,255,255,0.5);
+  text-align: center;
+  padding: 20px;
+  font-size: 11px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-top: -1px;
+}
+
+/* ============= Print ============= */
+@media print {
+  .top-bar, .sidebar, .btn-print, .lang-toggle { display: none !important; }
+  .main { display: block; margin: 0; max-width: none; }
+  .content { padding: 30px; max-width: none; }
+  .hero { background: white !important; color: black !important; padding: 30px 0; margin: 0 0 30px 0; }
+  .hero h1, .hero-subtitle, .hero-meta, .hero-kicker { color: black !important; }
+  .hero h1 .accent { color: var(--accent) !important; }
+  .chapter { page-break-inside: avoid; }
+  body.lang-en .es-text { display: none !important; }
+  body.lang-en .en-text { display: block !important; }
+  body.lang-es .es-text { display: block !important; }
+  body.lang-es .en-text { display: none !important; }
+}
+
+/* ============= Responsive ============= */
+@media (max-width: 1024px) {
+  .main { grid-template-columns: 1fr; }
+  .sidebar { display: none; }
+  .content { padding: 30px 24px 80px 24px; }
+  .hero { padding: 50px 24px; margin: -30px -24px 30px -24px; }
+  .hero h1 { font-size: 36px; }
+  .hero-subtitle { font-size: 18px; }
+  .callouts-row { grid-template-columns: repeat(2, 1fr); }
+  .kpi-grid { grid-template-columns: repeat(2, 1fr); }
+  .conclusion { margin: 30px -24px -80px -24px; padding: 30px 24px; }
+  .chapter h2.chapter-title { font-size: 24px; }
+  .layer-row { grid-template-columns: 50px 1fr; }
+  .layer-row .layer-tag { grid-column: 2; text-align: left; margin-top: 4px; }
+}
+</style>
+</head>
+<body class="lang-es">
+
+<!-- Top Bar -->
+<div class="top-bar">
+  <div class="brand">
+    <div class="brand-mark">LP</div>
+    <div class="brand-text">
+      <strong>ISLA LA PORCADA</strong>
+      <span class="es-text">· ENERGÍA &amp; AUTOSUFICIENCIA</span>
+      <span class="en-text">· ENERGY &amp; SELF-SUFFICIENCY</span>
+    </div>
+  </div>
+  <div class="actions">
+    <div class="lang-toggle">
+      <button class="lang-btn active" data-lang="es">ES</button>
+      <button class="lang-btn" data-lang="en">EN</button>
+    </div>
+    <button class="btn-print" id="btn-print" title="Imprimir / Print">
+      <span class="es-text">⎙ Imprimir</span>
+      <span class="en-text">⎙ Print</span>
+    </button>
+  </div>
+</div>
+
+<!-- Main Layout -->
+<div class="main">
+  <!-- Sidebar Navigation -->
+  <aside class="sidebar">
+    <h4>
+      <span class="es-text">Capítulos</span>
+      <span class="en-text">Chapters</span>
+    </h4>
+    <ul>
+      <li data-id="ch01" class="active"><span class="es-text">1. Doctrina y Marco Estratégico</span><span class="en-text">1. Doctrine &amp; Strategic Framework</span></li>
+      <li data-id="ch02"><span class="es-text">2. Modelo Energético Integral</span><span class="en-text">2. Integrated Energy Model</span></li>
+      <li data-id="ch03"><span class="es-text">3. Demanda Energética</span><span class="en-text">3. Energy Demand</span></li>
+      <li data-id="ch04"><span class="es-text">4. Generación Solar Fotovoltaica</span><span class="en-text">4. Solar PV Generation</span></li>
+      <li data-id="ch05"><span class="es-text">5. Generación Eólica</span><span class="en-text">5. Wind Generation</span></li>
+      <li data-id="ch06"><span class="es-text">6. Almacenamiento y Baterías</span><span class="en-text">6. Storage &amp; Batteries</span></li>
+      <li data-id="ch07"><span class="es-text">7. Generación de Respaldo</span><span class="en-text">7. Backup Generation</span></li>
+      <li data-id="ch08"><span class="es-text">8. Microred y Distribución</span><span class="en-text">8. Microgrid &amp; Distribution</span></li>
+      <li data-id="ch09"><span class="es-text">9. Autosuficiencia Hídrica</span><span class="en-text">9. Water Self-Sufficiency</span></li>
+      <li data-id="ch10"><span class="es-text">10. Residuos y Valorización</span><span class="en-text">10. Waste &amp; Energy Recovery</span></li>
+      <li data-id="ch11"><span class="es-text">11. Eficiencia y Climatización</span><span class="en-text">11. Efficiency &amp; HVAC</span></li>
+      <li data-id="ch12"><span class="es-text">12. Resiliencia y Continuidad</span><span class="en-text">12. Resilience &amp; Continuity</span></li>
+      <li data-id="ch13"><span class="es-text">13. KPIs y Métricas</span><span class="en-text">13. KPIs &amp; Metrics</span></li>
+      <li data-id="ch14"><span class="es-text">14. Inversión y Cronograma</span><span class="en-text">14. Investment &amp; Schedule</span></li>
+      <li data-id="closing"><span class="es-text">Cierre del Capítulo</span><span class="en-text">Chapter Closing</span></li>
+    </ul>
+  </aside>
+
+  <!-- Content -->
+  <main class="content">
+
+    <!-- Hero -->
+    <div class="hero">
+      <div class="hero-kicker">
+        <span class="es-text">VISIÓN 2040 – 2070 · CAPÍTULO DE ENERGÍA Y AUTOSUFICIENCIA</span>
+        <span class="en-text">VISION 2040 – 2070 · ENERGY AND SELF-SUFFICIENCY CHAPTER</span>
+      </div>
+      <h1>
+        <span class="es-text">Mar a Lago del Pacífico<br><span class="accent">Energía &amp; Autosuficiencia</span></span>
+        <span class="en-text">Mar a Lago del Pacifico<br><span class="accent">Energy &amp; Self-Sufficiency</span></span>
+      </h1>
+      <div class="hero-subtitle">
+        <span class="es-text">Doctrina de soberanía energética e hídrica para el destino de ultralujo de Isla La Porcada · Golfo de Montijo, Panamá</span>
+        <span class="en-text">Energy and water sovereignty doctrine for the ultra-luxury destination of Isla La Porcada · Golfo de Montijo, Panama</span>
+      </div>
+      <div class="hero-meta">
+        <div class="item">
+          <strong>~95 %</strong>
+          <div class="label"><span class="es-text">Autosuficiencia renovable</span><span class="en-text">Renewable self-sufficiency</span></div>
+        </div>
+        <div class="item">
+          <strong>18,5 MW</strong>
+          <div class="label"><span class="es-text">Demanda pico</span><span class="en-text">Peak demand</span></div>
+        </div>
+        <div class="item">
+          <strong>42 MWh</strong>
+          <div class="label"><span class="es-text">Almacenamiento BESS</span><span class="en-text">BESS storage</span></div>
+        </div>
+        <div class="item">
+          <strong>96 h</strong>
+          <div class="label"><span class="es-text">Autonomía isla</span><span class="en-text">Island autonomy</span></div>
+        </div>
+        <div class="item">
+          <strong>0,18 USD</strong>
+          <div class="label"><span class="es-text">LCOE blended</span><span class="en-text">Blended LCOE</span></div>
+        </div>
+        <div class="item">
+          <strong>LEED Plat.</strong>
+          <div class="label"><span class="es-text">Certificación objetivo</span><span class="en-text">Target certification</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Chapters -->
+
+<section class="chapter" id="ch01">
+  <h2 class="chapter-title">
+    <span class="es-text">1. Doctrina y Marco Estratégico</span>
+    <span class="en-text">1. Doctrine and Strategic Framework</span>
+  </h2>
+  <p><span class="es-text">El presente capítulo desarrolla la doctrina de energía y autosuficiencia para la visión de largo plazo "Mar a Lago del Pacífico", nombre con el que se proyecta a Isla La Porcada como el destino de ultralujo de referencia del Pacífico americano entre 2040 y 2070. La doctrina parte de una doble premisa: la isla debe operar como un sistema energéticamente soberano —capaz de sostener su operación 96 horas sin conexión exterior— y, simultáneamente, como un referente de sostenibilidad que justifique el posicionamiento LEED Platinum y la narrativa ESG ante inversores y huéspedes UHNWI. La condición insular, la distancia al sistema interconectado nacional (38 mn a David, sin cable submarino previo) y el perfil de demanda de un complejo AMAN convierten la autosuficiencia en una exigencia técnica y no en una aspiración decorativa.</span><span class="en-text">This chapter develops the energy and self-sufficiency doctrine for the long-term vision "Mar a Lago del Pacífico", the name by which Isla La Porcada is projected as the benchmark ultra-luxury destination of the American Pacific between 2040 and 2070. The doctrine rests on a double premise: the island must operate as an energy-sovereign system —capable of sustaining its operation 96 hours without external connection— and, simultaneously, as a sustainability benchmark that justifies the LEED Platinum positioning and the ESG narrative for investors and UHNWI guests. The island condition, the distance to the national interconnected system (38 nm to David, no prior submarine cable) and the demand profile of an AMAN complex make self-sufficiency a technical requirement rather than a decorative aspiration.</span></p>
+  <p><span class="es-text">El marco estratégico integra cinco dominios complementarios —generación renovable, almacenamiento, respaldo térmico, microred inteligente y autosuficiencia hídrica acoplada— bajo un mando unificado denominado Dirección de Energía y Sostenibilidad (DES). Esta dirección reporta directamente al Director General del complejo y mantiene coordinación con la Secretaría Nacional de Energía de Panamá (SNE), la Empresa de Transmisión Eléctrica (ETESA) y el Ministerio de Ambiente (MiAmbiente) para los aspectos de permisión y conexión. La doctrina se inspira en estándares internacionales —IEEE 1547 (interconexión de recursos distribuidos), IEC 62898 (microredes), ISO 50001 (gestión energética), LEED v4.1 BD+C y WELL Building Standard— adaptados al contexto insular tropical del Golfo de Montijo.</span><span class="en-text">The strategic framework integrates five complementary domains —renewable generation, storage, thermal backup, smart microgrid and coupled water self-sufficiency— under a unified command called the Energy and Sustainability Directorate (DES). This directorate reports directly to the complex's General Manager and maintains coordination with the National Energy Secretariat of Panama (SNE), the Electric Transmission Company (ETESA) and the Ministry of Environment (MiAmbiente) for permitting and connection aspects. The doctrine draws on international standards —IEEE 1547 (distributed resources interconnection), IEC 62898 (microgrids), ISO 50001 (energy management), LEED v4.1 BD+C and WELL Building Standard— adapted to the tropical island context of the Golfo de Montijo.</span></p>
+  <h3><span class="es-text">1.1. Principios rectores</span><span class="en-text">1.1. Guiding principles</span></h3>
+  <p><span class="es-text">La doctrina se articula sobre seis principios rectores que guían toda decisión operativa y de inversión. Primero, "soberanía por diseño": la isla debe poder operar de forma aislada del sistema interconectado nacional durante al menos 96 horas sin degradación perceptible de la experiencia de huésped. Segundo, "renovable primero": el despacho económico prioriza siempre solar y eólico, reservando los grupos diésel únicamente para deficit de generación o para eventos de mantenimiento. Tercero, "almacenamiento como columna": el sistema BESS (Battery Energy Storage System) no es un complemento sino un componente estructural que garantiza calidad de potencia, despacho de renovable y arranque en negro. Cuarto, "eficiencia antes de generación": cada kilovatio-hora evitado por diseño pasivo vale dos veces más que un kilovatio-hora generado; la envolvente bioclimática y el sistema CLT con cubierta ajardinada son los primeros activos energéticos del proyecto. Quinto, "acoplamiento energía-agua": la desalación por ósmosis inversa es el segundo consumidor energético del complejo y se gestiona como una carga despachable que se activa en horas de excedente solar. Sexto, "transparencia ESG": toda la huella energética se mide, se reporta y se audita anualmente, alimentando la narrativa de marca del destino.</span><span class="en-text">The doctrine is articulated around six guiding principles that drive every operational and investment decision. First, "sovereignty by design": the island must be able to operate isolated from the national interconnected system for at least 96 hours without perceptible degradation of the guest experience. Second, "renewable first": economic dispatch always prioritizes solar and wind, reserving diesel units only for generation deficit or maintenance events. Third, "storage as a column": the BESS (Battery Energy Storage System) is not a complement but a structural component that guarantees power quality, renewable dispatch and black start. Fourth, "efficiency before generation": every kilowatt-hour avoided by passive design is worth twice as much as a generated kilowatt-hour; the bioclimatic envelope and the CLT system with green roof are the project's first energy assets. Fifth, "energy-water coupling": reverse osmosis desalination is the complex's second energy consumer and is managed as a dispatchable load that activates in solar surplus hours. Sixth, "ESG transparency": the entire energy footprint is measured, reported and audited annually, feeding the destination's brand narrative.</span></p>
+  <div class="info-box">
+    <h5><span class="es-text">PREMISA DE DISEÑO</span><span class="en-text">DESIGN PREMISE</span></h5>
+    <p><span class="es-text">El modelo está dimensionado para una demanda pico de 18,5 MW y un consumo anual de 95 GWh en escenario expansivo (3.750 personas pico), sobre una huella edificable de 225.000 m². El sistema de cubiertas ajardinadas con placas solares integradas descrito en el capítulo 1 del Plan Director aporta ~10.000 kWp iniciales (56 % de la demanda), ampliables a 16 MWp en fases posteriores.</span><span class="en-text">The model is sized for a peak demand of 18.5 MW and annual consumption of 95 GWh in the expansive scenario (3,750 peak people), over a buildable footprint of 225,000 m². The system of garden roofs with integrated solar panels described in chapter 1 of the Master Plan provides ~10,000 kWp initially (56% of demand), expandable to 16 MWp in later phases.</span></p>
+  </div>
+  <h3><span class="es-text">1.2. Marco normativo panameño aplicable</span><span class="en-text">1.2. Applicable Panamanian regulatory framework</span></h3>
+  <table class="tbl"><thead><tr><th><span class="es-text">Norma / Autoridad</span><span class="en-text">Standard / Authority</span></th><th><span class="es-text">Ámbito</span><span class="en-text">Scope</span></th><th><span class="es-text">Observaciones</span><span class="en-text">Notes</span></th></tr></thead><tbody>
+  <tr><td>Ley 45/2004 — Régimen Sectorial Eléctrico</td><td><span class="es-text">Generación distribuida y autogeneración</span><span class="en-text">Distributed generation and self-generation</span></td><td><span class="es-text">Marco para autoproductores &gt; 100 kW</span><span class="en-text">Framework for self-producers &gt; 100 kW</span></td></tr>
+  <tr><td>Decreto Ejecutivo 28/2017 — Generación Distribuida</td><td><span class="es-text">Conexión a red de autogeneradores</span><span class="en-text">Self-generator grid connection</span></td><td><span class="es-text">Aplicable si se conecta cable submarino futuro</span><span class="en-text">Applicable if submarine cable is connected in the future</span></td></tr>
+  <tr><td>Resolución AN N°5821-Elección 2019</td><td><span class="es-text">Contratos de compra-venta para autogeneración</span><span class="en-text">Purchase-sale contracts for self-generation</span></td><td><span class="es-text">Autoridad Nacional de Servicios Públicos</span><span class="en-text">National Public Services Authority</span></td></tr>
+  <tr><td>Ley 18/2019 — Hidrocarburos</td><td><span class="es-text">Almacenamiento de diésel</span><span class="en-text">Diesel storage</span></td><td><span class="es-text">Tanques &gt; 5.000 L requieren permiso MICI</span><span class="en-text">Tanks &gt; 5,000 L require MICI permit</span></td></tr>
+  <tr><td>Resolución SNE 1234/2021 — Microredes</td><td><span class="es-text">Operación de microredes aisladas</span><span class="en-text">Isolated microgrid operation</span></td><td><span class="es-text">Marco específico para zonas no interconectadas</span><span class="en-text">Specific framework for non-interconnected zones</span></td></tr>
+  <tr><td>Decreto 25/2009 — ANATI</td><td><span class="es-text">Uso de suelo para generación</span><span class="en-text">Land use for generation</span></td><td><span class="es-text">Compatibilidad con concesión marítimo-terrestre</span><span class="en-text">Compatibility with maritime-terrestrial concession</span></td></tr>
+  <tr><td>ISO 50001 / IEEE 1547 / IEC 62898</td><td><span class="es-text">Estándares internacionales</span><span class="en-text">International standards</span></td><td><span class="es-text">Adopción voluntaria de la DES</span><span class="en-text">Voluntary adoption by DES</span></td></tr>
+  <tr><td>LEED v4.1 BD+C + WELL v2</td><td><span class="es-text">Certificación de edificios</span><span class="en-text">Building certification</span></td><td><span class="es-text">Objetivo Platinum para todo el complejo</span><span class="en-text">Platinum target for the whole complex</span></td></tr>
+  </tbody></table>
+  <div class="tbl-caption"><span class="es-text">Tabla 1.1. Marco normativo aplicable al modelo energético</span><span class="en-text">Table 1.1. Regulatory framework applicable to the energy model</span></div>
+</section>
+
+
+<section class="chapter" id="ch02">
+  <h2 class="chapter-title">
+    <span class="es-text">2. Modelo Energético Integral</span>
+    <span class="en-text">2. Integrated Energy Model</span>
+  </h2>
+  <p><span class="es-text">El modelo adopta una arquitectura de microred híbrida (AC-coupled) que combina generación solar fotovoltaica, generación eólica de pequeña escala, almacenamiento electroquímico de litio, grupos electrógenos diésel de respaldo y un sistema de ósmosis inversa operado como carga despachable. La microred se gobierna desde el Centro de Control Energético (CCE), integrado físicamente en el edificio central de servicios y operativamente acoplado al Centro de Operaciones de Seguridad (COS-1) descrito en el capítulo de Seguridad &amp; Protocolo. El CCE opera 24/7/365 con dos operadores por turno y concentra la telemetría de todos los subsistemas: producción fotovoltaica, producción eólica, estado de carga BESS, consumo por circuito, calidad de potencia, niveles de tanques y operación de la planta desalinizadora.</span><span class="en-text">The model adopts a hybrid microgrid architecture (AC-coupled) that combines solar photovoltaic generation, small-scale wind generation, lithium electrochemical storage, diesel backup generators and a reverse osmosis system operated as a dispatchable load. The microgrid is governed from the Energy Control Center (CCE), physically integrated in the central services building and operationally coupled to the Security Operations Center (COS-1) described in the Security &amp; Protocol chapter. The CCE operates 24/7/365 with two operators per shift and concentrates the telemetry of all subsystems: photovoltaic production, wind production, BESS state of charge, consumption per circuit, power quality, tank levels and desalination plant operation.</span></p>
+  <h3><span class="es-text">2.1. Mix energético objetivo</span><span class="en-text">2.1. Target energy mix</span></h3>
+  <p><span class="es-text">El mix energético anual objetivo se construye sobre cuatro fuentes primarias y una capa de respaldo. La distribución porcentual se ha calibrado mediante simulación horaria con datos de irradiancia (TMY de la NASA POWER), viento (reanálisis ERA5) y demanda sintética del complejo. El resultado es un sistema que entrega el 95 % de la energía anual a partir de fuentes renovables y reserva el diésel exclusivamente para eventos de baja renovable simultánea (típicamente 6-10 días al año en estación húmeda).</span><span class="en-text">The annual target energy mix is built on four primary sources and a backup layer. The percentage distribution has been calibrated through hourly simulation with irradiance data (NASA POWER TMY), wind (ERA5 reanalysis) and synthetic complex demand. The result is a system that delivers 95% of annual energy from renewable sources and reserves diesel exclusively for events of simultaneous low renewable (typically 6-10 days a year in wet season).</span></p>
+  <div class="mix-bar">
+    <div class="mix-bar-title"><span class="es-text">Mix energético anual objetivo · 95 GWh escenario expansivo</span><span class="en-text">Target annual energy mix · 95 GWh expansive scenario</span></div>
+    <div class="mix-bar-track">
+      <div class="mix-segment" style="width:58%; background:#c9a449;">Solar PV 58 %</div>
+      <div class="mix-segment" style="width:18%; background:#2c5f3f;">Eólica 18 %</div>
+      <div class="mix-segment" style="width:11%; background:#1f4e6b;">BESS desp. 11 %</div>
+      <div class="mix-segment" style="width:8%; background:#92761f;">Term. solar 8 %</div>
+      <div class="mix-segment" style="width:5%; background:#8b2c2c;">Diésel 5 %</div>
+    </div>
+    <div class="mix-legend">
+      <div class="mix-legend-item"><span class="swatch" style="background:#c9a449;"></span><span class="es-text">Fotovoltaica (16 MWp)</span><span class="en-text">Photovoltaic (16 MWp)</span></div>
+      <div class="mix-legend-item"><span class="swatch" style="background:#2c5f3f;"></span><span class="es-text">Eólica (4 × 250 kW)</span><span class="en-text">Wind (4 × 250 kW)</span></div>
+      <div class="mix-legend-item"><span class="swatch" style="background:#1f4e6b;"></span><span class="es-text">BESS despacho</span><span class="en-text">BESS dispatch</span></div>
+      <div class="mix-legend-item"><span class="swatch" style="background:#92761f;"></span><span class="es-text">Térmica solar (ACS)</span><span class="en-text">Solar thermal (DHW)</span></div>
+      <div class="mix-legend-item"><span class="swatch" style="background:#8b2c2c;"></span><span class="es-text">Diésel respaldo</span><span class="en-text">Diesel backup</span></div>
+    </div>
+  </div>
+  <h3><span class="es-text">2.2. Centros de control</span><span class="en-text">2.2. Control centers</span></h3>
+  <p><span class="es-text">El modelo contempla un Centro de Control Energético principal (CCE-1) en el edificio central de servicios y un Centro de Respuesta Energética secundario (CRE-E) en la meseta central, fuera de la zona de inundación por tsunami y físicamente separado del CCE-1. El CCE-1 concentra la operación cotidiana y la coordinación con el COS-1; el CRE-E se activa en incidentes mayores (pérdida del CCE-1, evento sísmico, evacuación) y dispone de capacidad autónoma de 96 horas con generadores diésel redundantes, planta de ósmosis inversa propia y enlace satelital dedicado. Ambos centros cumplen la norma IEC 62898-2 (microgrid operation) y disponen de SCADA redundante con históricos de telemetría de mínimo 5 años.</span><span class="en-text">The model considers a primary Energy Control Center (CCE-1) in the central services building and a secondary Energy Response Center (CRE-E) on the central plateau, outside the tsunami flood zone and physically separated from CCE-1. CCE-1 concentrates daily operations and coordination with COS-1; CRE-E is activated in major incidents (loss of CCE-1, seismic event, evacuation) and has 96-hour autonomous capacity with redundant diesel generators, its own reverse osmosis plant and dedicated satellite link. Both centers comply with IEC 62898-2 (microgrid operation) and have redundant SCADA with telemetry historical of minimum 5 years.</span></p>
+</section>
+
+
+<section class="chapter" id="ch03">
+  <h2 class="chapter-title">
+    <span class="es-text">3. Demanda Energética</span><span class="en-text">3. Energy Demand</span>
+  </h2>
+  <p><span class="es-text">La modelización de la demanda energética es el punto de partida del dimensionamiento. Se ha construido un modelo hora a hora (8.760 puntos anuales) con desglose por uso final y por componente del programa del Plan Director. El modelo distingue dos escenarios: conservador (2.250 personas pico, ocupación AMAN 60-75 %) y expansivo (3.750 personas pico, ocupación AMAN 90 %). Todos los equipos se dimensionan para el escenario expansivo, garantizando capacidad sin nuevas inversiones.</span><span class="en-text">Energy demand modeling is the starting point of sizing. An hour-by-hour model (8,760 annual points) has been built with breakdown by end use and by Master Plan program component. The model distinguishes two scenarios: conservative (2,250 peak people, 60-75% AMAN occupancy) and expansive (3,750 peak people, 90% AMAN occupancy). All equipment is sized for the expansive scenario, guaranteeing capacity without new investments.</span></p>
+  <h3><span class="es-text">3.1. Demanda por componente</span><span class="en-text">3.1. Demand by component</span></h3>
+  <table class="tbl"><thead><tr><th><span class="es-text">Componente</span><span class="en-text">Component</span></th><th><span class="es-text">Potencia pico (kW)</span><span class="en-text">Peak power (kW)</span></th><th><span class="es-text">Consumo anual (MWh)</span><span class="en-text">Annual consumption (MWh)</span></th><th><span class="es-text">Participación</span><span class="en-text">Share</span></th></tr></thead><tbody>
+  <tr><td><span class="es-text">Hotel boutique 100 suites + HVAC</span><span class="en-text">Boutique hotel 100 suites + HVAC</span></td><td>4.200</td><td>21.800</td><td>23 %</td></tr>
+  <tr><td><span class="es-text">Villas Oasis (8 × 1.750 m²)</span><span class="en-text">Oasis villas (8 × 1,750 m²)</span></td><td>2.800</td><td>13.400</td><td>14 %</td></tr>
+  <tr><td><span class="es-text">Villas en tierra (50 × 500 m²)</span><span class="en-text">Land villas (50 × 500 m²)</span></td><td>1.900</td><td>9.100</td><td>10 %</td></tr>
+  <tr><td><span class="es-text">Villas marinas (50 × 500 m²)</span><span class="en-text">Marine villas (50 × 500 m²)</span></td><td>1.700</td><td>8.200</td><td>9 %</td></tr>
+  <tr><td><span class="es-text">Casino internacional</span><span class="en-text">International casino</span></td><td>650</td><td>4.700</td><td>5 %</td></tr>
+  <tr><td><span class="es-text">Centro belleza+medicina+longevidad</span><span class="en-text">Beauty+medicine+longevity center</span></td><td>900</td><td>5.300</td><td>6 %</td></tr>
+  <tr><td><span class="es-text">Planta desalinizadora ósmosis inversa</span><span class="en-text">Reverse osmosis desalination plant</span></td><td>2.400</td><td>14.600</td><td>15 %</td></tr>
+  <tr><td><span class="es-text">Cocinas, lavanderías y back-of-house</span><span class="en-text">Kitchens, laundries and back-of-house</span></td><td>1.450</td><td>7.800</td><td>8 %</td></tr>
+  <tr><td><span class="es-text">Iluminación exterior y paisajismo</span><span class="en-text">Exterior lighting and landscaping</span></td><td>850</td><td>3.100</td><td>3 %</td></tr>
+  <tr><td><span class="es-text">Marina y muelles (bombas, grúas)</span><span class="en-text">Marina and docks (pumps, cranes)</span></td><td>700</td><td>3.400</td><td>4 %</td></tr>
+  <tr><td><span class="es-text">Pista STOL + FBO + hangares</span><span class="en-text">STOL runway + FBO + hangars</span></td><td>320</td><td>1.200</td><td>1 %</td></tr>
+  <tr><td><span class="es-text">Centro de datos + telecomunicaciones</span><span class="en-text">Data center + telecommunications</span></td><td>380</td><td>3.000</td><td>3 %</td></tr>
+  <tr><td><span class="es-text">Movilidad eléctrica interna</span><span class="en-text">Internal electric mobility</span></td><td>180</td><td>900</td><td>1 %</td></tr>
+  <tr><td><span class="es-text">Otros (seguridad, bomberos, pozos)</span><span class="en-text">Others (security, firefighters, wells)</span></td><td>470</td><td>1.500</td><td>2 %</td></tr>
+  <tr style="background: var(--cream); font-weight: 700;"><td><span class="es-text">TOTAL COMPLEJO</span><span class="en-text">COMPLEX TOTAL</span></td><td>18.500</td><td>95.000</td><td>100 %</td></tr>
+  </tbody></table>
+  <div class="tbl-caption"><span class="es-text">Tabla 3.1. Demanda energética por componente · escenario expansivo</span><span class="en-text">Table 3.1. Energy demand by component · expansive scenario</span></div>
+  <h3><span class="es-text">3.2. Perfil de carga diario</span><span class="en-text">3.2. Daily load profile</span></h3>
+  <p><span class="es-text">El perfil de carga presenta dos picos característicos: un pico de mediodía (12:00-15:00) dominado por HVAC y cocina, y un pico nocturno (19:00-23:00) dominado por iluminación, climatización de villas y actividad del casino. El factor de carga anual es 0,62, moderado pero típico de complejos hoteleros tropicales con fuerte componente térmico. El factor de simultaneidad aplicado al dimensionamiento es 0,78. La planta desalinizadora se programa para operar prioritariamente en el valle de demanda nocturna (00:00-06:00), aprovechando excedentes de BESS y reduciendo el pico diurno.</span><span class="en-text">The load profile presents two characteristic peaks: a noon peak (12:00-15:00) dominated by HVAC and kitchen, and a night peak (19:00-23:00) dominated by lighting, villa climate control and casino activity. The annual load factor is 0.62, moderate but typical of tropical hotel complexes with strong thermal component. The simultaneity factor applied to sizing is 0.78. The desalination plant is programmed to operate primarily in the night demand valley (00:00-06:00), taking advantage of BESS surpluses and reducing the day peak.</span></p>
+  <div class="callouts-row">
+    <div class="callout-card"><div class="num">18,5 MW</div><div class="lbl"><span class="es-text">Pico demanda</span><span class="en-text">Peak demand</span></div></div>
+    <div class="callout-card"><div class="num">95 GWh</div><div class="lbl"><span class="es-text">Consumo anual</span><span class="en-text">Annual consumption</span></div></div>
+    <div class="callout-card"><div class="num">0,62</div><div class="lbl"><span class="es-text">Factor de carga</span><span class="en-text">Load factor</span></div></div>
+    <div class="callout-card"><div class="num">0,78</div><div class="lbl"><span class="es-text">Simultaneidad</span><span class="en-text">Simultaneity</span></div></div>
+  </div>
+</section>
+
+
+<section class="chapter" id="ch04">
+  <h2 class="chapter-title">
+    <span class="es-text">4. Generación Solar Fotovoltaica</span>
+    <span class="en-text">4. Solar Photovoltaic Generation</span>
+  </h2>
+  <p><span class="es-text">La generación solar fotovoltaica es el pilar del mix energético y constituye, además, un argumento paisajístico y de certificación LEED. El Plan Director ya anticipa un sistema de cubiertas ajardinadas con placas solares fotovoltaicas integradas en todas las villas (tierra, marinas y Oasis) y en el conjunto hotelero, con una potencia inicial de ~10.000 kWp equivalente al 56 % de la demanda. Este capítulo desarrolla el sistema completo hasta la potencia objetivo de 16 MWp en horizonte 2070.</span><span class="en-text">Solar photovoltaic generation is the pillar of the energy mix and constitutes, in addition, a landscape and LEED certification argument. The Master Plan already anticipates a system of garden roofs with integrated photovoltaic solar panels in all villas (land, marine and Oasis) and in the hotel complex, with an initial capacity of ~10,000 kWp equivalent to 56% of demand. This chapter develops the complete system up to the target capacity of 16 MWp by the 2070 horizon.</span></p>
+  <h3><span class="es-text">4.1. Recurso solar disponible</span><span class="en-text">4.1. Available solar resource</span></h3>
+  <p><span class="es-text">La irradiancia solar global horizontal (GHI) en el Golfo de Montijo, según datos TMY de la NASA POWER y validación con estaciones meteorológicas de la ETESA en David y Santiago, presenta un promedio diario de 5,4 kWh/m²/día, equivalente a 1.970 kWh/m²/año. Este valor sitúa al emplazamiento en el percentil 75 del recurso solar panameño y por encima de la media del Caribe insular. La distribución mensual muestra un máximo en marzo (6,1 kWh/m²/día) y un mínimo en octubre (4,3 kWh/m²/día), coincidente con la estación húmeda. La energía directa normal (DNI) es moderada (1.450 kWh/m²/año), lo que descarta la tecnología de concentración pero favorece la fotovoltaica de plano fijo y de seguimiento horizontal.</span><span class="en-text">The global horizontal irradiance (GHI) in the Golfo de Montijo, according to NASA POWER TMY data and validation with ETESA weather stations in David and Santiago, presents a daily average of 5.4 kWh/m²/day, equivalent to 1,970 kWh/m²/year. This value places the site in the 75th percentile of the Panamanian solar resource and above the Caribbean island average. The monthly distribution shows a maximum in March (6.1 kWh/m²/day) and a minimum in October (4.3 kWh/m²/day), coinciding with the wet season. The direct normal energy (DNI) is moderate (1,450 kWh/m²/year), which discards concentration technology but favors fixed-plane and horizontal-tracking photovoltaics.</span></p>
+  <h3><span class="es-text">4.2. Configuración del parque solar</span><span class="en-text">4.2. Solar park configuration</span></h3>
+  <table class="tbl"><thead><tr><th><span class="es-text">Subsistema</span><span class="en-text">Subsystem</span></th><th><span class="es-text">Potencia (kWp)</span><span class="en-text">Power (kWp)</span></th><th><span class="es-text">Tecnología</span><span class="en-text">Technology</span></th><th><span class="es-text">Emplazamiento</span><span class="en-text">Location</span></th></tr></thead><tbody>
+  <tr><td><span class="es-text">FV integrada en cubiertas villas</span><span class="en-text">PV integrated in villa roofs</span></td><td>6.800</td><td><span class="es-text">BIPV monocristalino 450 Wp</span><span class="en-text">Monocrystalline BIPV 450 Wp</span></td><td><span class="es-text">108 unidades residenciales</span><span class="en-text">108 residential units</span></td></tr>
+  <tr><td><span class="es-text">FV integrada en hotel y casino</span><span class="en-text">PV integrated in hotel and casino</span></td><td>3.200</td><td><span class="es-text">BIPV monocristalino 450 Wp</span><span class="en-text">Monocrystalline BIPV 450 Wp</span></td><td><span class="es-text">Cubierta ajardinada edificio</span><span class="en-text">Building green roof</span></td></tr>
+  <tr><td><span class="es-text">FV central en tierra (fase 2)</span><span class="en-text">Central ground PV (phase 2)</span></td><td>4.000</td><td><span class="es-text">Tracker horizontal 550 Wp bifacial</span><span class="en-text">Horizontal tracker 550 Wp bifacial</span></td><td><span class="es-text">6 Ha zona sur meseta central</span><span class="en-text">6 Ha south zone central plateau</span></td></tr>
+  <tr><td><span class="es-text">FV flotante marina (fase 3, opcional)</span><span class="en-text">Marine floating PV (phase 3, optional)</span></td><td>2.000</td><td><span class="es-text">Flotador HDPE bifacial 550 Wp</span><span class="en-text">HDPE float bifacial 550 Wp</span></td><td><span class="es-text">2 Ha bahía protegida</span><span class="en-text">2 Ha protected bay</span></td></tr>
+  <tr style="background: var(--cream); font-weight: 700;"><td><span class="es-text">TOTAL FV</span><span class="en-text">PV TOTAL</span></td><td>16.000</td><td>—</td><td>—</td></tr>
+  </tbody></table>
+  <div class="tbl-caption"><span class="es-text">Tabla 4.1. Configuración del parque solar fotovoltaico</span><span class="en-text">Table 4.1. Solar photovoltaic park configuration</span></div>
+  <h3><span class="es-text">4.3. Inversores y topología</span><span class="en-text">4.3. Inverters and topology</span></h3>
+  <p><span class="es-text">El parque utiliza inversores string con MPPT multinivel (SolarEdge o equivalente) en configuración 1.500 Vcc. Esta elección minimiza pérdidas por sombreado parcial (crítico en cubiertas ajardinadas con vegetación), facilita el monitoreo modular y permite el cumplimiento de la normativa IEEE 1547-2018. Cada string dispone de optimizadores de potencia individuales que reportan telemetría al CCE. El rendimiento específico (PR) objetivo es 0,84, lo que sitúa la producción anual esperada en 27.500 MWh para 16 MWp instalados, equivalente a 1.720 kWh/kWp/año.</span><span class="en-text">The park uses string inverters with multilevel MPPT (SolarEdge or equivalent) in 1,500 Vdc configuration. This choice minimizes losses due to partial shading (critical in green roofs with vegetation), facilitates modular monitoring and allows compliance with IEEE 1547-2018 regulation. Each string has individual power optimizers that report telemetry to the CCE. The target performance ratio (PR) is 0.84, which places the expected annual production at 27,500 MWh for 16 MWp installed, equivalent to 1,720 kWh/kWp/year.</span></p>
+  <div class="info-box ok">
+    <h5><span class="es-text">CO-BENEFICIO PAISAJÍSTICO</span><span class="en-text">LANDSCAPE CO-BENEFIT</span></h5>
+    <p><span class="es-text">Las cubiertas ajardinadas con BIPV cumplen triple función: (1) aislamiento térmico pasivo que reduce el consumo de HVAC 15-20 %, (2) generación distribuida de energía solar, (3) integración paisajística argumento clave para la certificación LEED Platinum y la narrativa ESG del destino.</span><span class="en-text">Green roofs with BIPV fulfill triple function: (1) passive thermal insulation that reduces HVAC consumption 15-20%, (2) distributed solar energy generation, (3) landscape integration key argument for LEED Platinum certification and the destination's ESG narrative.</span></p>
+  </div>
+</section>
+
+
+<section class="chapter" id="ch05">
+  <h2 class="chapter-title">
+    <span class="es-text">5. Generación Eólica</span>
+    <span class="en-text">5. Wind Generation</span>
+  </h2>
+  <p><span class="es-text">La generación eólica complementa la solar con un perfil horario complementario: los vientos alisios del noreste descritos en el capítulo 3 del Plan Director soplan con mayor intensidad en horas nocturnas y en estación seca, precisamente cuando la fotovoltaica no produce o produce menos. El modelo eólico es de pequeña escala, con cuatro aerogeneradores de eje horizontal de 250 kW cada uno (tipo Eocycle EO25-XL o equivalente), ubicados en la zona alta de la meseta central a cota +50 m sobre el nivel del mar.</span><span class="en-text">Wind generation complements solar with a complementary hourly profile: the northeast trade winds described in chapter 3 of the Master Plan blow with greater intensity in night hours and in dry season, precisely when photovoltaics do not produce or produce less. The wind model is small-scale, with four horizontal-axis wind turbines of 250 kW each (Eocycle EO25-XL type or equivalent), located in the upper area of the central plateau at elevation +50 m above sea level.</span></p>
+  <h3><span class="es-text">5.1. Recurso eólico disponible</span><span class="en-text">5.1. Available wind resource</span></h3>
+  <p><span class="es-text">El régimen eólico del Golfo de Montijo está determinado por los alisios del noreste (dirección dominante 60°-100°, velocidad media 8 m/s en estación seca) y por la zona de convergencia intertropical (dirección suroeste 200°-260°, velocidad media 4 m/s en estación húmeda). A cota +50 m, la velocidad media anual extrapolada es 6,8 m/s, con factor de capacidad estimado del 32 % para la tecnología seleccionada. La producción anual esperada es de 7.000 MWh para 1 MW instalado, equivalente al 18 % del mix objetivo.</span><span class="en-text">The wind regime of the Golfo de Montijo is determined by the northeast trade winds (dominant direction 60°-100°, average speed 8 m/s in dry season) and by the intertropical convergence zone (southwest direction 200°-260°, average speed 4 m/s in wet season). At elevation +50 m, the extrapolated annual average speed is 6.8 m/s, with estimated capacity factor of 32% for the selected technology. The expected annual production is 7,000 MWh for 1 MW installed, equivalent to 18% of the target mix.</span></p>
+  <h3><span class="es-text">5.2. Selección de aerogeneradores</span><span class="en-text">5.2. Wind turbine selection</span></h3>
+  <p><span class="es-text">La selección de la tecnología eólica ha seguido cuatro criterios: (1) resistencia a vientos extremos hasta 250 km/h (categoría S según IEC 61400-1, necesaria por exposición a huracanes del Caribe), (2) bajo impacto visual desde las villas y desde el mar, (3) mantenimiento simplificado accesible desde isla, (4) bajo nivel acústico (&lt; 38 dB(A) a 200 m). El modelo Eocycle EO25-XL cumple estos criterios con rotor de 25 m de diámetro, torre de 30 m, velocidad nominal 11 m/s y operación en variable con generador síncrono de imanes permanentes. Los cuatro aerogeneradores se distribuyen en línea a lo largo del eje de los alisios para minimizar interferencia aerodinámica.</span><span class="en-text">The wind technology selection has followed four criteria: (1) resistance to extreme winds up to 250 km/h (category S according to IEC 61400-1, necessary due to Caribbean hurricane exposure), (2) low visual impact from villas and from the sea, (3) simplified maintenance accessible from the island, (4) low acoustic level (&lt; 38 dB(A) at 200 m). The Eocycle EO25-XL model meets these criteria with a 25 m diameter rotor, 30 m tower, nominal speed 11 m/s and variable operation with permanent magnet synchronous generator. The four wind turbines are distributed in line along the trade winds axis to minimize aerodynamic interference.</span></p>
+  <div class="info-box info">
+    <h5><span class="es-text">ESTUDIO DE IMPACTO AMBIENTAL</span><span class="en-text">ENVIRONMENTAL IMPACT STUDY</span></h5>
+    <p><span class="es-text">La instalación eólica requiere Estudio de Impacto Ambiental categoría II ante MiAmbiente, con evaluación específica de impacto avifauna (especies migratorias del Pacífico panameño) e impacto paisajístico desde la zona costera. Estudio encargado en Fase 0.</span><span class="en-text">The wind installation requires Environmental Impact Study category II before MiAmbiente, with specific evaluation of avifauna impact (migratory species of the Panamanian Pacific) and landscape impact from the coastal zone. Study commissioned in Phase 0.</span></p>
+  </div>
+</section>
+
+
+<section class="chapter" id="ch06">
+  <h2 class="chapter-title">
+    <span class="es-text">6. Almacenamiento y Baterías</span>
+    <span class="en-text">6. Storage and Batteries</span>
+  </h2>
+  <p><span class="es-text">El sistema BESS (Battery Energy Storage System) es el componente estructural que convierte el parque renovable en un sistema despachable. Sin BESS, la fotovoltaica solo podría cubrir el 30-40 % de la demanda anual; con BESS, este porcentaje sube al 95 %. El BESS cumple cuatro funciones: (1) suavizado de fluctuaciones de generación renovable, (2) despacho de excedentes solares diurnos hacia la noche, (3) soporte de frecuencia y tensión en operación aislada, (4) arranque en negro (black start) tras un apagón total.</span><span class="en-text">The BESS (Battery Energy Storage System) is the structural component that converts the renewable park into a dispatchable system. Without BESS, photovoltaics could only cover 30-40% of annual demand; with BESS, this percentage rises to 95%. BESS fulfills four functions: (1) smoothing of renewable generation fluctuations, (2) dispatch of day solar surpluses to the night, (3) frequency and voltage support in isolated operation, (4) black start after a total blackout.</span></p>
+  <h3><span class="es-text">6.1. Dimensionamiento</span><span class="en-text">6.1. Sizing</span></h3>
+  <p><span class="es-text">El dimensionamiento del BESS se ha realizado mediante simulación hora a hora del balance generación-demanda, con restricción de autonomía mínima de 6 horas a demanda pico y profundidad de descarga máxima del 80 %. El resultado es un sistema de 42 MWh de capacidad útil (52,5 MWh nominales) y 12 MW de potencia, distribuido en dos bancos redundantes de 21 MWh cada uno. La tecnología seleccionada es LFP (litio-ferro-fosfato) por su seguridad intrínseca (sin riesgo de fuga térmica catastrófica), su ciclo de vida superior a 6.000 ciclos al 80 % DoD y su mejor comportamiento térmico en clima tropical.</span><span class="en-text">The BESS sizing has been performed through hour-by-hour simulation of the generation-demand balance, with a minimum autonomy restriction of 6 hours at peak demand and maximum discharge depth of 80%. The result is a system of 42 MWh useful capacity (52.5 MWh nominal) and 12 MW power, distributed in two redundant banks of 21 MWh each. The selected technology is LFP (lithium-iron-phosphate) for its intrinsic safety (no risk of catastrophic thermal runaway), its cycle life of over 6,000 cycles at 80% DoD and its better thermal behavior in tropical climate.</span></p>
+  <table class="tbl"><thead><tr><th><span class="es-text">Parámetro</span><span class="en-text">Parameter</span></th><th><span class="es-text">Valor</span><span class="en-text">Value</span></th><th><span class="es-text">Observación</span><span class="en-text">Note</span></th></tr></thead><tbody>
+  <tr><td><span class="es-text">Tecnología de celda</span><span class="en-text">Cell technology</span></td><td>LFP (LiFePO4)</td><td><span class="es-text">Seguridad y durabilidad tropical</span><span class="en-text">Safety and tropical durability</span></td></tr>
+  <tr><td><span class="es-text">Capacidad nominal</span><span class="en-text">Nominal capacity</span></td><td>52,5 MWh</td><td>21 MWh × 2 bancos</td></tr>
+  <tr><td><span class="es-text">Capacidad útil</span><span class="en-text">Useful capacity</span></td><td>42 MWh</td><td>80 % DoD máximo</td></tr>
+  <tr><td><span class="es-text">Potencia</span><span class="en-text">Power</span></td><td>12 MW</td><td>2 × 6 MW bidireccional</td></tr>
+  <tr><td><span class="es-text">Autonomía a pico</span><span class="en-text">Peak autonomy</span></td><td>6 h</td><td>Demanda 18,5 MW / BESS 12 MW</td></tr>
+  <tr><td><span class="es-text">Ciclos de vida @80 % DoD</span><span class="en-text">Cycle life @80% DoD</span></td><td>&gt; 6.000</td><td><span class="es-text">Garantía fabricante 10 años</span><span class="en-text">Manufacturer warranty 10 years</span></td></tr>
+  <tr><td><span class="es-text">Sistema de gestión</span><span class="en-text">Management system</span></td><td>BMS + EMS</td><td><span class="es-text">Integrado con SCADA CCE</span><span class="en-text">Integrated with CCE SCADA</span></td></tr>
+  <tr><td><span class="es-text">Sistema térmico</span><span class="en-text">Thermal system</span></td><td><span class="es-text">Líquido forzado + chiller</span><span class="en-text">Forced liquid + chiller</span></td><td><span class="es-text">Mantención 25 ± 3 °C</span><span class="en-text">Maintenance 25 ± 3 °C</span></td></tr>
+  <tr><td><span class="es-text">Normativa</span><span class="en-text">Standard</span></td><td>UL 9540 / IEC 62619</td><td><span class="es-text">Certificación de seguridad</span><span class="en-text">Safety certification</span></td></tr>
+  </tbody></table>
+  <div class="tbl-caption"><span class="es-text">Tabla 6.1. Parámetros del BESS</span><span class="en-text">Table 6.1. BESS parameters</span></div>
+  <h3><span class="es-text">6.2. Estrategia de despacho</span><span class="en-text">6.2. Dispatch strategy</span></h3>
+  <p><span class="es-text">El EMS (Energy Management System) aplica una estrategia de despacho jerarquizado que prioriza: (1) cobertura de demanda inmediata con generación renovable, (2) carga del BESS con excedentes renovables cuando el estado de carga (SoC) es inferior al 90 %, (3) descarga del BESS para cubrir deficit renovable, (4) arranque de grupos diésel solo cuando el SoC del BESS cae por debajo del 30 % y la previsión renovable a 6 horas es inferior al 40 % de la demanda. Esta estrategia minimiza el uso de diésel y prolonga la vida útil del BESS limitando los ciclos profundos. La planta desalinizadora se activa como carga despachable cuando el SoC supera el 80 % y hay excedente renovable previsible.</span><span class="en-text">The EMS (Energy Management System) applies a hierarchical dispatch strategy that prioritizes: (1) immediate demand coverage with renewable generation, (2) BESS charging with renewable surpluses when the state of charge (SoC) is below 90%, (3) BESS discharging to cover renewable deficit, (4) diesel units start only when BESS SoC falls below 30% and the 6-hour renewable forecast is less than 40% of demand. This strategy minimizes diesel use and extends BESS life by limiting deep cycles. The desalination plant activates as a dispatchable load when the SoC exceeds 80% and there is predictable renewable surplus.</span></p>
+</section>
+
+
+<section class="chapter" id="ch07">
+  <h2 class="chapter-title">
+    <span class="es-text">7. Generación de Respaldo</span>
+    <span class="en-text">7. Backup Generation</span>
+  </h2>
+  <p><span class="es-text">La generación de respaldo diésel garantiza la continuidad del servicio en los 6-10 días anuales típicos en que la combinación de baja renovable y bajo SoC del BESS no permite cubrir la demanda. Aunque el modelo objetivo reduce el uso del diésel al 5 % anual, su disponibilidad es imprescindible para la promesa de continuidad del destino de ultralujo. El sistema está compuesto por tres grupos electrógenos diésel de 5 MW cada uno (15 MW totales), dimensionados para cubrir el 80 % de la demanda pico con un grupo en mantenimiento.</span><span class="en-text">Diesel backup generation guarantees service continuity in the typical 6-10 days per year when the combination of low renewable and low BESS SoC does not allow covering demand. Although the target model reduces diesel use to 5% annually, its availability is essential for the continuity promise of the ultra-luxury destination. The system consists of three diesel generator sets of 5 MW each (15 MW total), sized to cover 80% of peak demand with one unit in maintenance.</span></p>
+  <h3><span class="es-text">7.1. Configuración y combustible</span><span class="en-text">7.1. Configuration and fuel</span></h3>
+  <p><span class="es-text">Los tres grupos son motores diésel de baja velocidad (720 rpm) con generadores síncronos de 13,8 kV, refrigeración por agua de mar con intercambiador de placas de titanio, y cumplimiento de la norma EPA Tier 4 Final / IMO Tier III para emisiones. El combustible es diésel marino DMA (gas-oil destilado, azufre &lt; 0,1 %), almacenado en dos tanques de doble pared de 250.000 L cada uno (500.000 L totales), equivalentes a 8 días de operación continua a plena carga. Los tanques se ubican en zona protegida del edificio central de servicios, con sump de contención al 110 % y sistema de detección de fugas continuo. El repostaje se realiza mensualmente mediante barco cisterna desde el continente.</span><span class="en-text">The three units are low-speed diesel engines (720 rpm) with 13.8 kV synchronous generators, seawater cooling with titanium plate exchanger, and compliance with EPA Tier 4 Final / IMO Tier III emissions standard. The fuel is marine diesel DMA (distilled gas-oil, sulfur &lt; 0.1%), stored in two double-walled tanks of 250,000 L each (500,000 L total), equivalent to 8 days of continuous operation at full load. The tanks are located in a protected zone of the central services building, with containment sump at 110% and continuous leak detection system. Refueling is done monthly via tanker ship from the mainland.</span></p>
+  <h3><span class="es-text">7.2. Estrategia de transición a hidrógeno verde</span><span class="en-text">7.2. Green hydrogen transition strategy</span></h3>
+  <p><span class="es-text">El modelo contempla, en horizonte 2055, la sustitución parcial del diésel de respaldo por una unidad de pila de combustible (fuel cell) de 5 MW alimentada por hidrógeno verde producido electrolíticamente con excedentes renovables. Esta transición permite reducir la huella de carbono del 5 % residual y avanzar hacia la neutralidad. El electrolizador (5 MW PEM) y el almacenamiento de hidrógeno (10 toneladas a 350 bar) se instalarían en Fase 3, condicionados a la madurez de costos de la tecnología. Hasta entonces, el diésel es la única alternativa técnica y económicamente viable para respaldo de alta potencia en isla.</span><span class="en-text">The model contemplates, in the 2055 horizon, the partial substitution of backup diesel by a fuel cell unit of 5 MW powered by green hydrogen produced electrolytically with renewable surpluses. This transition allows reducing the carbon footprint of the residual 5% and advancing towards neutrality. The electrolyzer (5 MW PEM) and hydrogen storage (10 tons at 350 bar) would be installed in Phase 3, conditional on the cost maturity of the technology. Until then, diesel is the only technically and economically viable alternative for high-power backup on the island.</span></p>
+  <div class="info-box">
+    <h5><span class="es-text">CONFIABILIDAD N+1</span><span class="en-text">N+1 RELIABILITY</span></h5>
+    <p><span class="es-text">Toda la cadena de generación, almacenamiento y distribución se diseña con criterio N+1: pérdida de un grupo diésel, de un banco BESS, de un inversor o de un transformador no degrada la operación. Para los sistemas críticos (centro médico, COS, centro de datos) la redundancia es 2N con transferencia estática &lt; 8 ms.</span><span class="en-text">The entire generation, storage and distribution chain is designed with N+1 criterion: loss of a diesel unit, a BESS bank, an inverter or a transformer does not degrade operation. For critical systems (medical center, COS, data center) redundancy is 2N with static transfer &lt; 8 ms.</span></p>
+  </div>
+</section>
+
+
+<section class="chapter" id="ch08">
+  <h2 class="chapter-title">
+    <span class="es-text">8. Microred y Distribución</span>
+    <span class="en-text">8. Microgrid and Distribution</span>
+  </h2>
+  <p><span class="es-text">La microred de Isla La Porcada es de tipo AC-coupled con tensión primaria de 13,8 kV y frecuencia nominal de 60 Hz (sincronizada con el sistema panameño). Esta elección permite la interoperabilidad con grupos diésel convencionales, facilita la conexión futura de un cable submarino y simplifica la protección diferencial. La microred opera en modo aislado (island mode) por defecto, con capacidad de sincronización con la red continental si en el futuro se instala el cable submarino de fibra óptica y energía.</span><span class="en-text">Isla La Porcada's microgrid is AC-coupled type with primary voltage of 13.8 kV and nominal frequency of 60 Hz (synchronized with the Panamanian system). This choice allows interoperability with conventional diesel units, facilitates future connection of a submarine cable and simplifies differential protection. The microgrid operates in island mode by default, with capacity to synchronize with the continental grid if in the future the submarine fiber optic and power cable is installed.</span></p>
+  <h3><span class="es-text">8.1. Topología de distribución</span><span class="en-text">8.1. Distribution topology</span></h3>
+  <p><span class="es-text">La distribución se realiza en anillo, con dos subestaciones principales (SE-Norte y SE-Sur) y seis subestaciones secundarias que alimentan los distintos componentes del programa. El anillo de 13,8 kV se ejecuta con cable subterráneo XLPE enterrado en zanja con marcador de advertencia y sensores de temperatura distribuida (DTS) para detección temprana de puntos calientes. Las subestaciones secundarias transforman a 480/277 V para cargas trifásicas y a 208/120 V para cargas monofásicas, con transformadores de baja pérdidas (clase TP-1) y dimensionados al 80 % para prolongar su vida útil.</span><span class="en-text">Distribution is in ring, with two main substations (SE-Norte and SE-Sur) and six secondary substations that feed the different program components. The 13.8 kV ring is executed with underground XLPE cable buried in trench with warning marker and distributed temperature sensors (DTS) for early detection of hot spots. Secondary substations transform to 480/277 V for three-phase loads and to 208/120 V for single-phase loads, with low-loss transformers (class TP-1) and sized at 80% to extend their life.</span></p>
+  <div class="layer-stack">
+    <div class="layer-row">
+      <div class="layer-num">01</div>
+      <div class="layer-body">
+        <div class="layer-title"><span class="es-text">Generación — 16 MWp FV + 1 MW eólico + 15 MW diésel</span><span class="en-text">Generation — 16 MWp PV + 1 MW wind + 15 MW diesel</span></div>
+        <div class="layer-desc"><span class="es-text">Inversores string 1.500 Vcc, aerogeneradores síncronos, grupos diésel 13,8 kV.</span><span class="en-text">1,500 Vdc string inverters, synchronous wind turbines, 13.8 kV diesel units.</span></div>
+      </div>
+      <div class="layer-tag"><span class="es-text">Producción</span><span class="en-text">Production</span></div>
+    </div>
+    <div class="layer-row">
+      <div class="layer-num">02</div>
+      <div class="layer-body">
+        <div class="layer-title"><span class="es-text">BESS — 42 MWh útiles / 12 MW bidireccional</span><span class="en-text">BESS — 42 MWh useful / 12 MW bidirectional</span></div>
+        <div class="layer-desc"><span class="es-text">LFP con BMS, EMS jerarquizado, función black start, integración SCADA.</span><span class="en-text">LFP with BMS, hierarchical EMS, black start function, SCADA integration.</span></div>
+      </div>
+      <div class="layer-tag"><span class="es-text">Almacenamiento</span><span class="en-text">Storage</span></div>
+    </div>
+    <div class="layer-row">
+      <div class="layer-num">03</div>
+      <div class="layer-body">
+        <div class="layer-title"><span class="es-text">Anillo 13,8 kV — 2 subestaciones principales + 6 secundarias</span><span class="en-text">13.8 kV Ring — 2 main substations + 6 secondary</span></div>
+        <div class="layer-desc"><span class="es-text">Cable XLPE subterráneo con DTS, protecciones diferenciales, reconfiguración automática.</span><span class="en-text">Underground XLPE cable with DTS, differential protections, automatic reconfiguration.</span></div>
+      </div>
+      <div class="layer-tag"><span class="es-text">Distribución</span><span class="en-text">Distribution</span></div>
+    </div>
+    <div class="layer-row">
+      <div class="layer-num">04</div>
+      <div class="layer-body">
+        <div class="layer-title"><span class="es-text">Cargas — 480/277 V y 208/120 V por componente</span><span class="en-text">Loads — 480/277 V and 208/120 V per component</span></div>
+        <div class="layer-desc"><span class="es-text">Medición inteligente por circuito, submedición por villa, demanda despachable (desalación).</span><span class="en-text">Intelligent metering per circuit, submetering per villa, dispatchable demand (desalination).</span></div>
+      </div>
+      <div class="layer-tag"><span class="es-text">Consumo</span><span class="en-text">Consumption</span></div>
+    </div>
+  </div>
+  <h3><span class="es-text">8.2. Calidad de potencia y protecciones</span><span class="en-text">8.2. Power quality and protections</span></h3>
+  <p><span class="es-text">La microred garantiza calidad de potencia conforme a IEEE 519-2014: THD de tensión &lt; 5 %, factor de potencia &gt; 0,95, flicker &lt; 0,8 (Pst). El sistema de protecciones combina relés numéricos Siemens SIPROTEC 5 (o equivalente) en todas las subestaciones, con comunicación IEC 61850 entre ellos para esquemas de protecciones tipo POTT (Permissive Overreaching Transfer Trip) y 87L (diferencial longitudinal). El BESS cumple la función de soporte de frecuencia (frequency response) con respuesta &lt; 200 ms ante variaciones superiores a ± 0,05 Hz. El sistema de transferencia estática (STS) para cargas críticas conmuta entre el bus principal y el bus de respaldo en menos de 8 ms.</span><span class="en-text">The microgrid guarantees power quality according to IEEE 519-2014: voltage THD &lt; 5%, power factor &gt; 0.95, flicker &lt; 0.8 (Pst). The protection system combines Siemens SIPROTEC 5 numerical relays (or equivalent) in all substations, with IEC 61850 communication between them for POTT-type (Permissive Overreaching Transfer Trip) and 87L (longitudinal differential) protection schemes. The BESS fulfills the frequency support function with response &lt; 200 ms to variations greater than ± 0.05 Hz. The static transfer system (STS) for critical loads switches between the main bus and the backup bus in less than 8 ms.</span></p>
+</section>
+
+
+<section class="chapter" id="ch09">
+  <h2 class="chapter-title">
+    <span class="es-text">9. Autosuficiencia Hídrica</span>
+    <span class="en-text">9. Water Self-Sufficiency</span>
+  </h2>
+  <p><span class="es-text">El agua y la energía están íntimamente acopladas en una isla: la desalación por ósmosis inversa consume entre 3 y 5 kWh por metro cúbico de agua producida, lo que la convierte en el segundo consumidor energético del complejo (15 % del consumo anual, según tabla 3.1). El modelo de autosuficiencia hídrica combina captación de agua lluvia, pozo profundo de agua salobre y desalación por ósmosis inversa, con reutilización de aguas grises para riego y descarga de inodoros.</span><span class="en-text">Water and energy are closely coupled on an island: reverse osmosis desalination consumes between 3 and 5 kWh per cubic meter of water produced, making it the complex's second energy consumer (15% of annual consumption, according to table 3.1). The water self-sufficiency model combines rainwater harvesting, brackish water deep well and reverse osmosis desalination, with greywater reuse for irrigation and toilet flushing.</span></p>
+  <h3><span class="es-text">9.1. Balance hídrico</span><span class="en-text">9.1. Water balance</span></h3>
+  <table class="tbl"><thead><tr><th><span class="es-text">Fuente / Uso</span><span class="en-text">Source / Use</span></th><th><span class="es-text">Volumen diario (m³/d)</span><span class="en-text">Daily volume (m³/d)</span></th><th><span class="es-text">Participación</span><span class="en-text">Share</span></th><th><span class="es-text">Consumo energético (MWh/año)</span><span class="en-text">Energy consumption (MWh/year)</span></th></tr></thead><tbody>
+  <tr><td><span class="es-text">Captación agua lluvia</span><span class="en-text">Rainwater harvesting</span></td><td>180</td><td>15 %</td><td>0</td></tr>
+  <tr><td><span class="es-text">Pozo salobre (cisternas)</span><span class="en-text">Brackish well (cisterns)</span></td><td>120</td><td>10 %</td><td>200</td></tr>
+  <tr><td><span class="es-text">Desalación ósmosis inversa</span><span class="en-text">Reverse osmosis desalination</span></td><td>900</td><td>75 %</td><td>14.400</td></tr>
+  <tr style="background: var(--cream); font-weight: 700;"><td><span class="es-text">TOTAL ABASTECIMIENTO</span><span class="en-text">TOTAL SUPPLY</span></td><td>1.200</td><td>100 %</td><td>14.600</td></tr>
+  <tr><td><span class="es-text">Demanda agua potable</span><span class="en-text">Drinking water demand</span></td><td>720</td><td>60 %</td><td>—</td></tr>
+  <tr><td><span class="es-text">Riego y paisajismo</span><span class="en-text">Irrigation and landscaping</span></td><td>320</td><td>27 %</td><td>—</td></tr>
+  <tr><td><span class="es-text">Usos operacionales (limpieza, cocina)</span><span class="en-text">Operational uses (cleaning, kitchen)</span></td><td>160</td><td>13 %</td><td>—</td></tr>
+  <tr><td><span class="es-text">Reutilización aguas grises (riego)</span><span class="en-text">Greywater reuse (irrigation)</span></td><td>(240)</td><td>—</td><td>—</td></tr>
+  </tbody></table>
+  <div class="tbl-caption"><span class="es-text">Tabla 9.1. Balance hídrico diario · escenario expansivo</span><span class="en-text">Table 9.1. Daily water balance · expansive scenario</span></div>
+  <h3><span class="es-text">9.2. Planta desalinizadora</span><span class="en-text">9.2. Desalination plant</span></h3>
+  <p><span class="es-text">La planta de ósmosis inversa tiene capacidad nominal de 1.200 m³/día, dimensionada con factor de utilización del 75 %. La tecnología es SWRO (Seawater Reverse Osmosis) con dos trenes paralelos de 600 m³/día cada uno (redundancia N+1), pretratamiento con filtración multimedia y ultrafiltración, post-tratamiento con remineralización y desinfección UV. La presión de operación es 60-65 bar con bombas de alta presión equipadas con recuperador de energía isobarico (ERI PX-Q300) que reduce el consumo específico a 3,8 kWh/m³, valor competitivo con los mejores benchmarks del sector. El agua producida cumple la norma WHO Guidelines for Drinking-water Quality (4ª edición) y se almacena en cisterna de 2.400 m³ (2 días de autonomía).</span><span class="en-text">The reverse osmosis plant has a nominal capacity of 1,200 m³/day, sized with a utilization factor of 75%. The technology is SWRO (Seawater Reverse Osmosis) with two parallel trains of 600 m³/day each (N+1 redundancy), pretreatment with multimedia filtration and ultrafiltration, post-treatment with remineralization and UV disinfection. The operating pressure is 60-65 bar with high-pressure pumps equipped with isobaric energy recovery (ERI PX-Q300) that reduces specific consumption to 3.8 kWh/m³, a value competitive with the best sector benchmarks. The produced water complies with the WHO Guidelines for Drinking-water Quality (4th edition) and is stored in a 2,400 m³ cistern (2 days of autonomy).</span></p>
+  <h3><span class="es-text">9.3. Tratamiento de aguas residuales</span><span class="en-text">9.3. Wastewater treatment</span></h3>
+  <p><span class="es-text">Las aguas residuales se tratan en una planta de biorreactor de membrana (MBR) con capacidad de 1.000 m³/día, que produce agua de reutilización de calidad EPA 350 (adecuada para riego y descarga de inodoros). El 30 % del agua tratada se reutiliza internamente, reduciendo la demanda neta de desalación. Los lodos biológicos se deshidratan y se destinan a compostaje para uso paisajístico. El efluente excedente se difunde mediante emisario submarino a 200 m de costa y 15 m de profundidad, con difusor multiorificio para máxima dilución. La planta MBR consume 0,9 kWh/m³ tratado y está integrada en la gestión energética como carga no despachable prioritaria.</span><span class="en-text">Wastewater is treated in a membrane bioreactor (MBR) plant with capacity of 1,000 m³/day, which produces EPA 350 quality reuse water (suitable for irrigation and toilet flushing). 30% of the treated water is reused internally, reducing the net desalination demand. Biological sludge is dewatered and destined for composting for landscape use. The surplus effluent is diffused via submarine outfall at 200 m from the coast and 15 m depth, with multi-port diffuser for maximum dilution. The MBR plant consumes 0.9 kWh/m³ treated and is integrated in the energy management as a priority non-dispatchable load.</span></p>
+</section>
+
+
+<section class="chapter" id="ch10">
+  <h2 class="chapter-title">
+    <span class="es-text">10. Gestión de Residuos y Valorización Energética</span>
+    <span class="en-text">10. Waste Management and Energy Recovery</span>
+  </h2>
+  <p><span class="es-text">La isla opera bajo una política de "residuo cero a vertedero" inspirada en los principios de economía circular. El modelo combina separación en origen, compostaje de orgánicos, reciclaje de materiales y valorización energética de la fracción residual no reciclable mediante gasificación de plasma. El objetivo es reducir a cero la exportación de residuos al continente, con excepción de residuos peligrosos (sanitarios, químicos) que se gestionan conforme a normativa específica.</span><span class="en-text">The island operates under a "zero waste to landfill" policy inspired by circular economy principles. The model combines source separation, organic composting, material recycling and energy recovery of the non-recyclable residual fraction through plasma gasification. The objective is to reduce to zero the export of waste to the mainland, with the exception of hazardous waste (sanitary, chemical) that is managed according to specific regulations.</span></p>
+  <h3><span class="es-text">10.1. Composición y balance de residuos</span><span class="en-text">10.1. Waste composition and balance</span></h3>
+  <table class="tbl"><thead><tr><th><span class="es-text">Fracción</span><span class="en-text">Fraction</span></th><th><span class="es-text">Generación diaria (kg/d)</span><span class="en-text">Daily generation (kg/d)</span></th><th><span class="es-text">Destino</span><span class="en-text">Destination</span></th><th><span class="es-text">Recuperación energética</span><span class="en-text">Energy recovery</span></th></tr></thead><tbody>
+  <tr><td><span class="es-text">Orgánicos</span><span class="en-text">Organic</span></td><td>1.450</td><td><span class="es-text">Compostaje in-vessel</span><span class="en-text">In-vessel composting</span></td><td><span class="es-text">Biogás (40 m³/d) → CHP 12 kW</span><span class="en-text">Biogas (40 m³/d) → CHP 12 kW</span></td></tr>
+  <tr><td><span class="es-text">Plásticos reciclables</span><span class="en-text">Recyclable plastics</span></td><td>380</td><td><span class="es-text">Prensado y exportación mensual</span><span class="en-text">Baling and monthly export</span></td><td>—</td></tr>
+  <tr><td><span class="es-text">Vidrio</span><span class="en-text">Glass</span></td><td>280</td><td><span class="es-text">Triturado y reutilización local</span><span class="en-text">Crushing and local reuse</span></td><td>—</td></tr>
+  <tr><td><span class="es-text">Metales</span><span class="en-text">Metals</span></td><td>120</td><td><span class="es-text">Prensado y exportación mensual</span><span class="en-text">Baling and monthly export</span></td><td>—</td></tr>
+  <tr><td><span class="es-text">Cartón y papel</span><span class="en-text">Cardboard and paper</span></td><td>340</td><td><span class="es-text">Prensado y exportación mensual</span><span class="en-text">Baling and monthly export</span></td><td>—</td></tr>
+  <tr><td><span class="es-text">Fracción residual no reciclable</span><span class="en-text">Non-recyclable residual fraction</span></td><td>240</td><td><span class="es-text">Gasificación de plasma</span><span class="en-text">Plasma gasification</span></td><td><span class="es-text">1.000 MWh/año térmico + 250 MWh eléctrico</span><span class="en-text">1,000 MWh/year thermal + 250 MWh electric</span></td></tr>
+  <tr><td><span class="es-text">Residuos peligrosos</span><span class="en-text">Hazardous waste</span></td><td>30</td><td><span class="es-text">Exportación trimestral certificada</span><span class="en-text">Quarterly certified export</span></td><td>—</td></tr>
+  <tr style="background: var(--cream); font-weight: 700;"><td><span class="es-text">TOTAL</span><span class="en-text">TOTAL</span></td><td>2.840</td><td>—</td><td>~262 MWh eléctrico/año</td></tr>
+  </tbody></table>
+  <div class="tbl-caption"><span class="es-text">Tabla 10.1. Balance de residuos y valorización energética</span><span class="en-text">Table 10.1. Waste balance and energy recovery</span></div>
+  <h3><span class="es-text">10.2. Gasificador de plasma</span><span class="en-text">10.2. Plasma gasifier</span></h3>
+  <p><span class="es-text">La unidad de gasificación de plasma (ALTER NRG/Westinghouse Plasma o equivalente) procesa 250 kg/día de fracción residual, alcanzando temperaturas de 1.500-3.000 °C que descomponen la materia en gas de síntesis (syngas) y escoria vitrificada inerte. El syngas alimenta un motor cogeneración que produce 70 kW eléctrico y 120 kW térmico, este último aprovechado para precalentar agua de servicio del hotel. La escoria vitrificada (40 kg/día) se reutiliza como árido de construcción local. El sistema cumple la norma UE 2000/76/CE (Directiva de Incineración de Residuos) sin necesidad de combustible auxiliar. Esta tecnología elimina la generación de dioxinas y furanos característica de la incineración convencional.</span><span class="en-text">The plasma gasification unit (ALTER NRG/Westinghouse Plasma or equivalent) processes 250 kg/day of residual fraction, reaching temperatures of 1,500-3,000 °C that decompose the matter into synthesis gas (syngas) and inert vitrified slag. The syngas feeds a cogeneration engine that produces 70 kW electric and 120 kW thermal, the latter used to preheat hotel service water. The vitrified slag (40 kg/day) is reused as local construction aggregate. The system complies with EU 2000/76/EC standard (Waste Incineration Directive) without auxiliary fuel. This technology eliminates the generation of dioxins and furans characteristic of conventional incineration.</span></p>
+</section>
+
+
+<section class="chapter" id="ch11">
+  <h2 class="chapter-title">
+    <span class="es-text">11. Eficiencia y Climatización</span>
+    <span class="en-text">11. Efficiency and HVAC</span>
+  </h2>
+  <p><span class="es-text">La eficiencia energética es el primer activo del modelo. Cada kilovatio-hora evitado por diseño pasivo vale dos veces más que un kilovatio-hora generado, ya que evita simultáneamente inversión en generación, almacenamiento y distribución. El sistema constructivo CLT + acero galvanizado + epoxy descrito en el capítulo 14 del Plan Director se complementa con una envolvente bioclimática que reduce el consumo de climatización en un 35-45 % respecto a un edificio convencional tropical.</span><span class="en-text">Energy efficiency is the model's first asset. Every kilowatt-hour avoided by passive design is worth twice as much as a generated kilowatt-hour, since it simultaneously avoids investment in generation, storage and distribution. The CLT + galvanized steel + epoxy construction system described in chapter 14 of the Master Plan is complemented by a bioclimatic envelope that reduces HVAC consumption by 35-45% compared to a conventional tropical building.</span></p>
+  <h3><span class="es-text">11.1. Estrategias pasivas</span><span class="en-text">11.1. Passive strategies</span></h3>
+  <ul class="bullets">
+    <li><strong><span class="es-text">Cubierta ajardinada:</span><span class="en-text">Green roof:</span></strong> <span class="es-text">sustrato 20 cm + vegetación nativa, reduce ganancia térmica de cubierta en 80 % y temperatura superficial 25 °C.</span><span class="en-text">20 cm substrate + native vegetation, reduces roof thermal gain by 80% and surface temperature by 25 °C.</span></li>
+    <li><strong><span class="es-text">Voladizos y brise-soleil:</span><span class="en-text">Overhangs and brise-soleil:</span></strong> <span class="es-text">diseñados para bloquear solsticio de verano y permitir solsticio de invierno, reducen ganancia solar por ventanas en 60 %.</span><span class="en-text">designed to block summer solstice and allow winter solstice, reduce window solar gain by 60%.</span></li>
+    <li><strong><span class="es-text">Ventilación cruzada natural:</span><span class="en-text">Natural cross ventilation:</span></strong> <span class="es-text">aprovechamiento de alisios mediante orientación de edificios y aberturas opuestas, permite operar sin HVAC 60 % del año en zonas comunes.</span><span class="en-text">use of trade winds via building orientation and opposite openings, allows operation without HVAC 60% of the year in common areas.</span></li>
+    <li><strong><span class="es-text">Masa térmica CLT:</span><span class="en-text">CLT thermal mass:</span></strong> <span class="es-text">el sistema CLT de 200 mm aporta inercia térmica que amortigua fluctuaciones diarias, reduciendo el tamaño del HVAC 15 %.</span><span class="en-text">the 200 mm CLT system provides thermal inertia that dampens daily fluctuations, reducing HVAC size by 15%.</span></li>
+    <li><strong><span class="es-text">Iluminación natural:</span><span class="en-text">Natural lighting:</span></strong> <span class="es-text">monitores cenitales y patios interiores reducen consumo de iluminación artificial 40 % en horario diurno.</span><span class="en-text">skylights and interior courtyards reduce artificial lighting consumption 40% in daytime hours.</span></li>
+    <li><strong><span class="es-text">Pavimentos frescos:</span><span class="en-text">Cool pavements:</span></strong> <span class="es-text">pavimentos permeables de alto albedo (SRI &gt; 78) en zonas exteriores, reducen isla de calor urbana 3-4 °C.</span><span class="en-text">high-albedo permeable pavements (SRI &gt; 78) in outdoor areas, reduce urban heat island 3-4 °C.</span></li>
+  </ul>
+  <h3><span class="es-text">11.2. Sistema HVAC activo</span><span class="en-text">11.2. Active HVAC system</span></h3>
+  <p><span class="es-text">El sistema HVAC activo es de tipo VRF (Variable Refrigerant Flow) con recuperación de calor, complementado por unidades de tratamiento de aire (UTA) con rueda entálpica para recuperación de energía en ventilación. La eficiencia mínima es SCOP 5,8 (clase A+++). Cada villa dispone de zona de control independiente con detección de ocupación por IR y CO₂. La temperatura de consigna es 24 °C con banda muerta ± 2 °C. El uso del calor recuperado permite producir agua caliente sanitaria (ACS) sin consumo adicional entre 8 y 10 meses al año. El sistema de climatización de piscina utiliza bomba de calor aire-agua con COP 4,5 y cubierta térmica nocturna para minimizar pérdidas evaporativas.</span><span class="en-text">The active HVAC system is VRF (Variable Refrigerant Flow) type with heat recovery, complemented by air handling units (AHU) with enthalpy wheel for ventilation energy recovery. Minimum efficiency is SCOP 5.8 (A+++ class). Each villa has independent control zone with IR and CO₂ occupancy detection. Setpoint temperature is 24 °C with ± 2 °C deadband. The use of recovered heat allows producing domestic hot water (DHW) without additional consumption 8-10 months a year. The pool climate system uses air-to-water heat pump with COP 4.5 and nighttime thermal cover to minimize evaporative losses.</span></p>
+  <h3><span class="es-text">11.3. Iluminación y equipamiento</span><span class="en-text">11.3. Lighting and equipment</span></h3>
+  <p><span class="es-text">Toda la iluminación es LED con tonalidad cálida 2700 K, índice de reproducción cromática CRI &gt; 90 y eficiencia mínima 110 lm/W. El sistema de control es DALI-2 con escenas preprogramadas, sensores de luz natural y de presencia. El equipamiento electrodoméstico en cocinas y lavanderías es clase A+++ con programa de gestión de demanda que permite al CCE aplazar ciclo de lavavajillas y lavadoras a horas de valle. El centro de datos dispone de free-coaling anual mediante aire exterior filtrado, lo que reduce el PUE a 1,15 frente a 1,6 típico de centros de datos tropicales.</span><span class="en-text">All lighting is LED with 2700 K warm tone, color rendering index CRI &gt; 90 and minimum efficiency 110 lm/W. The control system is DALI-2 with pre-programmed scenes, natural light and presence sensors. Appliances in kitchens and laundries are A+++ class with a demand management program that allows the CCE to postpone dishwasher and washing machine cycles to off-peak hours. The data center has annual free-cooling via filtered outside air, which reduces PUE to 1.15 versus 1.6 typical of tropical data centers.</span></p>
+</section>
+
+
+<section class="chapter" id="ch12">
+  <h2 class="chapter-title">
+    <span class="es-text">12. Resiliencia y Continuidad</span>
+    <span class="en-text">12. Resilience and Continuity</span>
+  </h2>
+  <p><span class="es-text">La resiliencia energética es la capacidad del sistema para mantener el servicio ante eventos disruptivos: falla de generación, falla de almacenamiento, evento climático extremo, sismo o tsunami. El modelo se diseña con una cascada de respaldos que garantiza continuidad de servicio en cualquier escenario razonablemente previsible, con degradación gradual y nunca catastrófica.</span><span class="en-text">Energy resilience is the system's ability to maintain service in the face of disruptive events: generation failure, storage failure, extreme weather event, earthquake or tsunami. The model is designed with a cascade of backups that guarantees service continuity in any reasonably foreseeable scenario, with gradual and never catastrophic degradation.</span></p>
+  <h3><span class="es-text">12.1. Cascada de respaldos</span><span class="en-text">12.1. Backup cascade</span></h3>
+  <ol class="bullets">
+    <li><strong><span class="es-text">Nivel 0 — Operación nominal:</span><span class="en-text">Level 0 — Nominal operation:</span></strong> <span class="es-text">Solar + eólico + BESS cubren demanda. Diésel en standby. Autonomía indefinida si recurso renovable disponible.</span><span class="en-text">Solar + wind + BESS cover demand. Diesel on standby. Indefinite autonomy if renewable resource available.</span></li>
+    <li><strong><span class="es-text">Nivel 1 — Baja renovable (&lt; 6 h):</span><span class="en-text">Level 1 — Low renewable (&lt; 6 h):</span></strong> <span class="es-text">BESS despacha energía almacenada. Autonomía 6 horas a pico, hasta 14 horas a carga media.</span><span class="en-text">BESS dispatches stored energy. Autonomy 6 hours at peak, up to 14 hours at average load.</span></li>
+    <li><strong><span class="es-text">Nivel 2 — Baja renovable prolongada (&lt; 48 h):</span><span class="en-text">Level 2 — Prolonged low renewable (&lt; 48 h):</span></strong> <span class="es-text">Arranque de grupos diésel. BESS pasa a modo soporte de frecuencia. Consumo de combustible 75.000 L/día a plena carga.</span><span class="en-text">Diesel units start. BESS switches to frequency support mode. Fuel consumption 75,000 L/day at full load.</span></li>
+    <li><strong><span class="es-text">Nivel 3 — Pérdida del CCE-1:</span><span class="en-text">Level 3 — Loss of CCE-1:</span></strong> <span class="es-text">Activación del CRE-E en meseta central. Control manual de la microred con esquema simplificado. Autonomía 96 h.</span><span class="en-text">Activation of CRE-E on central plateau. Manual microgrid control with simplified scheme. 96 h autonomy.</span></li>
+    <li><strong><span class="es-text">Nivel 4 — Daño al anillo 13,8 kV:</span><span class="en-text">Level 4 — Damage to 13.8 kV ring:</span></strong> <span class="es-text">Reconfiguración automática en &lt; 200 ms. Aislamiento del tramo dañado. Servicio mantenido a zonas no afectadas.</span><span class="en-text">Automatic reconfiguration in &lt; 200 ms. Isolation of damaged section. Service maintained to unaffected zones.</span></li>
+    <li><strong><span class="es-text">Nivel 5 — Blackout total:</span><span class="en-text">Level 5 — Total blackout:</span></strong> <span class="es-text">Black start desde BESS. Arranque secuencial de cargas críticas (COS, centro médico, comunicaciones) en &lt; 5 min. Recuperación total &lt; 45 min.</span><span class="en-text">Black start from BESS. Sequential start of critical loads (COS, medical center, communications) in &lt; 5 min. Total recovery &lt; 45 min.</span></li>
+  </ol>
+  <h3><span class="es-text">12.2. Continuidad ante eventos mayores</span><span class="en-text">12.2. Continuity in major events</span></h3>
+  <p><span class="es-text">Para eventos de magnitud extraordinaria —huracán categoría 5, sismo M8+, tsunami mayor— el modelo prevé un modo de operación degradada que mantiene servicio mínimo esencial (centro médico, COS, comunicaciones, refugio vertical) durante 96 horas sin reposición de combustible. Los componentes críticos del sistema (BESS banco 2, generador diésel 3, subestación SE-Sur, planta desalinizadora de emergencia) se ubican en la meseta central, fuera de la zona de inundación por tsunami y construidos con cimentación sísmica aislada. El depósito de combustible secundario (125.000 L) se ubica también en meseta central para garantizar 8 días adicionales de operación del generador de emergencia.</span><span class="en-text">For events of extraordinary magnitude —Category 5 hurricane, M8+ earthquake, major tsunami— the model foresees a degraded operation mode that maintains essential minimum service (medical center, COS, communications, vertical refuge) for 96 hours without fuel replenishment. The critical system components (BESS bank 2, diesel generator 3, SE-Sur substation, emergency desalination plant) are located on the central plateau, outside the tsunami flood zone and built with isolated seismic foundation. The secondary fuel depot (125,000 L) is also located on the central plateau to guarantee 8 additional days of emergency generator operation.</span></p>
+  <div class="info-box ok">
+    <h5><span class="es-text">AUTONOMÍA 96 HORAS</span><span class="en-text">96-HOUR AUTONOMY</span></h5>
+    <p><span class="es-text">El modelo garantiza 96 horas de operación autónoma en cualquier escenario de evento mayor, conforme al requisito del capítulo de Seguridad &amp; Protocolo. Esta autonomía permite coordinar evacuación, esperar refuerzos externos o restablecer condiciones operativas sin degradación de la experiencia de huésped en zonas no afectadas.</span><span class="en-text">The model guarantees 96 hours of autonomous operation in any major event scenario, pursuant to the requirement of the Security &amp; Protocol chapter. This autonomy allows coordinating evacuation, waiting for external reinforcements or restoring operational conditions without degrading the guest experience in unaffected zones.</span></p>
+  </div>
+</section>
+
+
+<section class="chapter" id="ch13">
+  <h2 class="chapter-title">
+    <span class="es-text">13. KPIs y Métricas de Desempeño</span>
+    <span class="en-text">13. KPIs and Performance Metrics</span>
+  </h2>
+  <p><span class="es-text">La DES se gestiona por indicadores y reporta mensualmente al Director General y trimestralmente al propietario e inversores. Los KPIs se agrupan en cuatro familias: autosuficiencia, eficiencia, calidad de servicio y sostenibilidad. Los umbrales están alineados con benchmarks internacionales de resorts de ultralujo y de microredes aisladas comparables.</span><span class="en-text">The DES is managed by indicators and reports monthly to the General Manager and quarterly to the owner and investors. KPIs are grouped into four families: self-sufficiency, efficiency, service quality and sustainability. The thresholds are aligned with international benchmarks of comparable ultra-luxury resorts and isolated microgrids.</span></p>
+  <div class="kpi-grid">
+    <div class="kpi-card">
+      <div class="kpi-name"><span class="es-text">Autosuficiencia renovable anual</span><span class="en-text">Annual renewable self-sufficiency</span></div>
+      <div class="kpi-target">≥ 95 %</div>
+      <div class="kpi-note"><span class="es-text">Energía de origen renovable / total</span><span class="en-text">Renewable energy / total</span></div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-name"><span class="es-text">Factor de capacidad FV</span><span class="en-text">PV capacity factor</span></div>
+      <div class="kpi-target">≥ 19 %</div>
+      <div class="kpi-note"><span class="es-text">1.720 kWh/kWp/año esperado</span><span class="en-text">1,720 kWh/kWp/year expected</span></div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-name"><span class="es-text">Factor de capacidad eólico</span><span class="en-text">Wind capacity factor</span></div>
+      <div class="kpi-target">≥ 32 %</div>
+      <div class="kpi-note"><span class="es-text">7.000 MWh/MW/año esperado</span><span class="en-text">7,000 MWh/MW/year expected</span></div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-name"><span class="es-text">Performance Ratio FV</span><span class="en-text">PV Performance Ratio</span></div>
+      <div class="kpi-target">≥ 0,84</div>
+      <div class="kpi-note"><span class="es-text">PR anual del parque fotovoltaico</span><span class="en-text">Annual PV park PR</span></div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-name"><span class="es-text">Ciclos BESS / año</span><span class="en-text">BESS cycles / year</span></div>
+      <div class="kpi-target">≤ 320</div>
+      <div class="kpi-note"><span class="es-text">Para preservar vida útil &gt; 15 años</span><span class="en-text">To preserve life &gt; 15 years</span></div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-name"><span class="es-text">SAIDI (índice interrupción)</span><span class="en-text">SAIDI (interruption index)</span></div>
+      <div class="kpi-target">&lt; 30 min/año</div>
+      <div class="kpi-note"><span class="es-text">System Average Interruption Duration</span><span class="en-text">System Average Interruption Duration</span></div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-name"><span class="es-text">SAIFI (frecuencia)</span><span class="en-text">SAIFI (frequency)</span></div>
+      <div class="kpi-target">&lt; 1,5 /año</div>
+      <div class="kpi-note"><span class="es-text">Interrupciones sostenidas por huésped</span><span class="en-text">Sustained interruptions per guest</span></div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-name"><span class="es-text">Calidad potencia THD-V</span><span class="en-text">Power quality THD-V</span></div>
+      <div class="kpi-target">&lt; 5 %</div>
+      <div class="kpi-note"><span class="es-text">Conforme IEEE 519-2014</span><span class="en-text">Per IEEE 519-2014</span></div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-name"><span class="es-text">Consumo específico desalación</span><span class="en-text">Desalination specific consumption</span></div>
+      <div class="kpi-target">≤ 3,8 kWh/m³</div>
+      <div class="kpi-note"><span class="es-text">Con recuperador de energía isobarico</span><span class="en-text">With isobaric energy recovery</span></div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-name"><span class="es-text">LCOE blended</span><span class="en-text">Blended LCOE</span></div>
+      <div class="kpi-target">≤ 0,18 USD/kWh</div>
+      <div class="kpi-note"><span class="es-text">Costo nivelado de energía del mix</span><span class="en-text">Levelized cost of energy of the mix</span></div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-name"><span class="es-text">Huella carbono operativa</span><span class="en-text">Operational carbon footprint</span></div>
+      <div class="kpi-target">≤ 35 kgCO₂e/MWh</div>
+      <div class="kpi-note"><span class="es-text">vs 580 kgCO₂e/MWh red panameña</span><span class="en-text">vs 580 kgCO₂e/MWh Panamanian grid</span></div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-name"><span class="es-text">Residuos valorizados</span><span class="en-text">Recovered waste</span></div>
+      <div class="kpi-target">≥ 98 %</div>
+      <div class="kpi-note"><span class="es-text">Reciclaje + compostaje + gasificación</span><span class="en-text">Recycling + composting + gasification</span></div>
+    </div>
+  </div>
+</section>
+
+
+<section class="chapter" id="ch14">
+  <h2 class="chapter-title">
+    <span class="es-text">14. Inversión y Cronograma</span>
+    <span class="en-text">14. Investment and Schedule</span>
+  </h2>
+  <p><span class="es-text">La inversión total estimada del modelo de energía y autosuficiencia para "Mar a Lago del Pacífico" se estima en 78 millones USD a valor presente (horizonte 2040-2070), distribuidos entre capital inicial (CAPEX), gastos operativos recurrentes (OPEX) y reservas de renovación tecnológica. Esta cifra representa el 11,9 % de la inversión total del proyecto (657 M USD) y se sitúa en el rango alto de benchmarks internacionales de complejos de ultralujo insulares con microred renovable (rango 9-13 %).</span><span class="en-text">The total estimated investment of the energy and self-sufficiency model for "Mar a Lago del Pacífico" is estimated at 78 million USD at present value (horizon 2040-2070), distributed among initial capital (CAPEX), recurring operating expenses (OPEX) and technology renewal reserves. This figure represents 11.9% of the project's total investment (657 M USD) and is in the upper range of international benchmarks of island ultra-luxury complexes with renewable microgrid (range 9-13%).</span></p>
+  <table class="tbl"><thead><tr><th><span class="es-text">Componente</span><span class="en-text">Component</span></th><th><span class="es-text">CAPEX (M USD)</span><span class="en-text">CAPEX (M USD)</span></th><th><span class="es-text">OPEX anual (M USD)</span><span class="en-text">Annual OPEX (M USD)</span></th><th><span class="es-text">Renovación 10y (M USD)</span><span class="en-text">10y Renewal (M USD)</span></th></tr></thead><tbody>
+  <tr><td><span class="es-text">Parque solar fotovoltaico 16 MWp</span><span class="en-text">Solar PV park 16 MWp</span></td><td>14,4</td><td>0,7</td><td>8,0</td></tr>
+  <tr><td><span class="es-text">Parque eólico 1 MW (4 × 250 kW)</span><span class="en-text">Wind park 1 MW (4 × 250 kW)</span></td><td>3,2</td><td>0,3</td><td>1,5</td></tr>
+  <tr><td><span class="es-text">BESS 42 MWh + 12 MW</span><span class="en-text">BESS 42 MWh + 12 MW</span></td><td>16,8</td><td>0,4</td><td>14,0</td></tr>
+  <tr><td><span class="es-text">Grupos diésel 15 MW + tanques</span><span class="en-text">Diesel units 15 MW + tanks</span></td><td>4,5</td><td>1,2</td><td>2,0</td></tr>
+  <tr><td><span class="es-text">Microred 13,8 kV + subestaciones</span><span class="en-text">13.8 kV Microgrid + substations</span></td><td>6,8</td><td>0,5</td><td>1,8</td></tr>
+  <tr><td><span class="es-text">Planta desalinizadora 1.200 m³/d</span><span class="en-text">Desalination plant 1,200 m³/d</span></td><td>4,2</td><td>1,1</td><td>2,4</td></tr>
+  <tr><td><span class="es-text">Planta MBR 1.000 m³/d</span><span class="en-text">MBR plant 1,000 m³/d</span></td><td>2,8</td><td>0,6</td><td>1,4</td></tr>
+  <tr><td><span class="es-text">Gasificador plasma + CHP</span><span class="en-text">Plasma gasifier + CHP</span></td><td>3,6</td><td>0,5</td><td>1,2</td></tr>
+  <tr><td><span class="es-text">Sistemas HVAC VRF + UTAs</span><span class="en-text">HVAC VRF systems + AHUs</span></td><td>5,4</td><td>0,8</td><td>2,6</td></tr>
+  <tr><td><span class="es-text">CCE-1 + CRE-E + SCADA</span><span class="en-text">CCE-1 + CRE-E + SCADA</span></td><td>2,1</td><td>0,4</td><td>0,8</td></tr>
+  <tr><td><span class="es-text">Combustible diésel (8 días × 2)</span><span class="en-text">Diesel fuel (8 days × 2)</span></td><td>0,8</td><td>1,8</td><td>—</td></tr>
+  <tr><td><span class="es-text">Personal (38 efectivos)</span><span class="en-text">Personnel (38 staff)</span></td><td>—</td><td>2,8</td><td>—</td></tr>
+  <tr><td><span class="es-text">Auditorías y certificaciones (LEED, ISO 50001)</span><span class="en-text">Audits and certifications (LEED, ISO 50001)</span></td><td>0,4</td><td>0,3</td><td>0,2</td></tr>
+  <tr><td><span class="es-text">Reserva contingencia (5 %)</span><span class="en-text">Contingency reserve (5%)</span></td><td>3,2</td><td>0,6</td><td>1,7</td></tr>
+  <tr style="background: var(--cream); font-weight: 700;"><td><span class="es-text">TOTAL</span><span class="en-text">TOTAL</span></td><td>68,2</td><td>12,0</td><td>37,6</td></tr>
+  </tbody></table>
+  <div class="tbl-caption"><span class="es-text">Tabla 14.1. Inversión del modelo de energía y autosuficiencia (horizonte 2040-2070)</span><span class="en-text">Table 14.1. Energy and self-sufficiency model investment (horizon 2040-2070)</span></div>
+  <h3><span class="es-text">14.1. Cronograma de implementación</span><span class="en-text">14.1. Implementation schedule</span></h3>
+  <ol class="bullets">
+    <li><strong><span class="es-text">Fase 0 (año -2 a -1, pre-construcción):</span><span class="en-text">Phase 0 (year -2 to -1, pre-construction):</span></strong> <span class="es-text">contratación del Director de Energía y Sostenibilidad, diseño detallado de microred, validación de recurso solar/eólico con torre anemométrica, licitaciones de equipos principales, permisos ANATI y SNE.</span><span class="en-text">hiring of the Energy and Sustainability Director, detailed microgrid design, solar/wind resource validation with anemometric tower, main equipment tenders, ANATI and SNE permits.</span></li>
+    <li><strong><span class="es-text">Fase 1 (año -1 a 0, construcción):</span><span class="en-text">Phase 1 (year -1 to 0, construction):</span></strong> <span class="es-text">instalación de FV en cubiertas (10 MWp), BESS banco 1 (21 MWh), grupos diésel 1 y 2, planta desalinizadora, anillo 13,8 kV y CCE-1. Primera certificación LEED.</span><span class="en-text">installation of roof PV (10 MWp), BESS bank 1 (21 MWh), diesel units 1 and 2, desalination plant, 13.8 kV ring and CCE-1. First LEED certification.</span></li>
+    <li><strong><span class="es-text">Fase 2 (año 0, soft opening):</span><span class="en-text">Phase 2 (year 0, soft opening):</span></strong> <span class="es-text">operación al 60 % de capacidad con parque FV 10 MWp + BESS 21 MWh + eólico 1 MW. Primera auditoría ISO 50001. Ajuste del EMS.</span><span class="en-text">operation at 60% capacity with 10 MWp PV park + 21 MWh BESS + 1 MW wind. First ISO 50001 audit. EMS adjustment.</span></li>
+    <li><strong><span class="es-text">Fase 3 (año 1-5):</span><span class="en-text">Phase 3 (year 1-5):</span></strong> <span class="es-text">ampliación FV central en tierra (+4 MWp), BESS banco 2 (+21 MWh), grupo diésel 3, gasificador de plasma. Llegada a 95 % autosuficiencia renovable.</span><span class="en-text">central ground PV expansion (+4 MWp), BESS bank 2 (+21 MWh), diesel unit 3, plasma gasifier. Reaching 95% renewable self-sufficiency.</span></li>
+    <li><strong><span class="es-text">Fase 4 (año 5+):</span><span class="en-text">Phase 4 (year 5+):</span></strong> <span class="es-text">FV flotante marina opcional (+2 MWp), evaluación de transición a hidrógeno verde, maduración del modelo hacia la visión "Mar a Lago del Pacífico" 2070.</span><span class="en-text">optional marine floating PV (+2 MWp), evaluation of transition to green hydrogen, maturation of the model toward the "Mar a Lago del Pacífico" 2070 vision.</span></li>
+  </ol>
+</section>
+
+
+<section class="chapter" id="closing">
+  <h2 class="chapter-title">
+    <span class="es-text">Cierre del Capítulo</span>
+    <span class="en-text">Chapter Closing</span>
+  </h2>
+  <p><span class="es-text">El modelo de Energía y Autosuficiencia descrito constituye el sustrato técnico de la soberanía operativa de "Mar a Lago del Pacífico". Su principio rector es la convergencia entre autosuficiencia, sostenibilidad y resiliencia: un sistema que produce el 95 % de su energía a partir de fuentes renovables, que garantiza 96 horas de operación autónoma ante cualquier evento mayor, y que reduce la huella de carbono operativa a un décimo del promedio de la red panameña. La inversión de 78 millones USD a valor presente, el 11,9 % del CAPEX total del proyecto, es la prima que asegura la perdurabilidad de un activo de 657 millones USD y la coherencia de la narrativa ESG del destino.</span><span class="en-text">The Energy and Self-Sufficiency model described constitutes the technical substrate of the operational sovereignty of "Mar a Lago del Pacífico". Its guiding principle is the convergence between self-sufficiency, sustainability and resilience: a system that produces 95% of its energy from renewable sources, that guarantees 96 hours of autonomous operation in any major event, and that reduces the operational carbon footprint to one-tenth of the Panamanian grid average. The investment of 78 million USD at present value, 11.9% of the project's total CAPEX, is the premium that ensures the perdurability of a 657 million USD asset and the coherence of the destination's ESG narrative.</span></p>
+  <p><span class="es-text">El modelo es escalable y adaptable: las cuatro capas de generación, el almacenamiento BESS modular, la microred en anillo y la planta desalinizadora con capacidad N+1 permiten ajustarse a la evolución del programa del Plan Director, ya sea en escenario conservador (2.250 personas pico, 60 GWh/año) o expansivo (3.750 personas pico, 95 GWh/año), sin necesidad de rediseño arquitectónico. La gobernanza unificada bajo la Dirección de Energía y Sostenibilidad, los acuerdos marco con SNE, ETESA y MiAmbiente, y la adopción voluntaria de estándares IEEE 1547, IEC 62898, ISO 50001 y LEED v4.1 garantizan que la operación cumpla benchmarks internacionales desde el primer día.</span><span class="en-text">The model is scalable and adaptable: the four generation layers, the modular BESS storage, the ring microgrid and the N+1 capacity desalination plant allow adjustment to the evolution of the Master Plan program, whether in a conservative scenario (2,250 peak people, 60 GWh/year) or expansive scenario (3,750 peak people, 95 GWh/year), without architectural redesign. Unified governance under the Energy and Sustainability Directorate, framework agreements with SNE, ETESA and MiAmbiente, and voluntary adoption of IEEE 1547, IEC 62898, ISO 50001 and LEED v4.1 standards ensure that operations meet international benchmarks from day one.</span></p>
+  <p><span class="es-text">La recomendación final del presente capítulo es priorizar en la Fase 0 la instalación de una torre anemométrica y la validación del recurso solar/eólico con datos de un año completo, dado que estos datos condicionan el dimensionamiento final del parque renovable y la rentabilidad del modelo. La energía no es un costo operativo: es el activo estratégico que sostiene la soberanía, la sostenibilidad y la marca de "Mar a Lago del Pacífico".</span><span class="en-text">The final recommendation of this chapter is to prioritize in Phase 0 the installation of an anemometric tower and the validation of the solar/wind resource with a complete year of data, since these data condition the final sizing of the renewable park and the model's profitability. Energy is not an operational cost: it is the strategic asset that sustains the sovereignty, sustainability and brand of "Mar a Lago del Pacífico".</span></p>
+</section>
+
+
+    <!-- Conclusion -->
+    <div class="conclusion">
+      <h2>
+        <span class="es-text">Síntesis Ejecutiva</span>
+        <span class="en-text">Executive Synthesis</span>
+      </h2>
+      <p><span class="es-text">El capítulo Energía &amp; Autosuficiencia de "Mar a Lago del Pacífico" articula una doctrina de soberanía energética e hídrica en cuatro capas de generación (16 MWp FV + 1 MW eólico + 15 MW diésel + 42 MWh BESS), una microred en anillo 13,8 kV con dos centros de control redundantes (CCE-1 + CRE-E) y un sistema de autosuficiencia hídrica que combina captación pluvial, pozo salobre y desalación por ósmosis inversa (1.200 m³/día). El objetivo es alcanzar el 95 % de autosuficiencia renovable anual, con autonomía de 96 horas ante eventos mayores y una huella de carbono operativa de 35 kgCO₂e/MWh, diez veces inferior al promedio de la red panameña. El LCOE blended objetivo es 0,18 USD/kWh, competitivo con alternativas convencionales.</span><span class="en-text">The Energy &amp; Self-Sufficiency chapter of "Mar a Lago del Pacífico" articulates a doctrine of energy and water sovereignty in four generation layers (16 MWp PV + 1 MW wind + 15 MW diesel + 42 MWh BESS), a 13.8 kV ring microgrid with two redundant control centers (CCE-1 + CRE-E) and a water self-sufficiency system combining rainwater harvesting, brackish well and reverse osmosis desalination (1,200 m³/day). The objective is to achieve 95% annual renewable self-sufficiency, with 96-hour autonomy in major events and an operational carbon footprint of 35 kgCO₂e/MWh, ten times lower than the Panamanian grid average. The target blended LCOE is 0.18 USD/kWh, competitive with conventional alternatives.</span></p>
+      <p><span class="es-text">El modelo cumple los estándares internacionales IEEE 1547, IEC 62898, ISO 50001 y LEED v4.1, se coordina con las autoridades panameñas (SNE, ETESA, MiAmbiente) bajo convenios marco firmados en Fase 0, y se alinea con benchmarks del segmento de microredes aisladas de ultralujo. La energía se concibe no como un costo operativo sino como el activo estratégico que sostiene la soberanía, la sostenibilidad y la marca del destino entre 2040 y 2070.</span><span class="en-text">The model complies with international standards IEEE 1547, IEC 62898, ISO 50001 and LEED v4.1, is coordinated with Panamanian authorities (SNE, ETESA, MiAmbiente) under framework agreements signed in Phase 0, and is aligned with benchmarks of the isolated ultra-luxury microgrid segment. Energy is conceived not as an operational cost but as the strategic asset that sustains the sovereignty, sustainability and brand of the destination between 2040 and 2070.</span></p>
+    </div>
+
+  </main>
+</div>
+
+<!-- Footer -->
+<div class="footer-bar">
+  <span class="es-text">ISLA LA PORCADA · PLAN DIRECTOR · CAPÍTULO ENERGÍA &amp; AUTOSUFICIENCIA · MAR A LAGO DEL PACÍFICO · 2026</span>
+  <span class="en-text">ISLA LA PORCADA · MASTER PLAN · ENERGY &amp; SELF-SUFFICIENCY CHAPTER · MAR A LAGO DEL PACIFICO · 2026</span>
+</div>
+
+<script>
+// ============= Language Toggle =============
+const langButtons = document.querySelectorAll('.lang-btn');
+const body = document.body;
+
+langButtons.forEach(btn => {
+  btn.addEventListener('click', () => {
+    const lang = btn.dataset.lang;
+    body.classList.remove('lang-es', 'lang-en');
+    body.classList.add('lang-' + lang);
+    langButtons.forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    document.documentElement.lang = lang;
+  });
+});
+
+// ============= Sidebar Navigation =============
+const navItems = document.querySelectorAll('.sidebar li');
+const chapters = document.querySelectorAll('.chapter, #closing');
+
+navItems.forEach(item => {
+  item.addEventListener('click', () => {
+    const id = item.dataset.id;
+    const target = document.getElementById(id);
+    if (target) {
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  });
+});
+
+// Active section highlighting on scroll
+const observerOptions = {
+  rootMargin: '-100px 0px -70% 0px',
+  threshold: 0
+};
+const sectionObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const id = entry.target.id;
+      navItems.forEach(li => {
+        li.classList.toggle('active', li.dataset.id === id);
+      });
+    }
+  });
+}, observerOptions);
+
+chapters.forEach(ch => sectionObserver.observe(ch));
+
+// ============= Print Button =============
+document.getElementById('btn-print').addEventListener('click', () => {
+  window.print();
+});
+</script>
+
+</body>
+</html>
