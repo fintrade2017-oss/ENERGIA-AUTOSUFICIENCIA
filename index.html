@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Isla La Porcada · Energía, Agua y Residuos · Mar a Lago del Pacífico (Master Plan)</title>
+  <meta name="author" content="Propfastinvest Group Ltd / SOTRATEC">
+  <meta name="description" content="Capítulo Completo de Energía, Autosuficiencia Hídrica Integrada y Gestión de Residuos Cero Impacto para la visión Mar a Lago del Pacífico · Isla La Porcada Master Plan">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&family=Playfair+Display:wght@400;700;900&display=swap" rel="stylesheet">
+  <style>
+/* ============= Reset & Base ============= */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: #fafafa;
+  color: #1a1a1a;
+  line-height: 1.7;
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ============= Color System ============= */
+:root {
+  --navy: #0a1628;
+  --navy-light: #142840;
+  --gold: #c9a449;
+  --gold-light: #e8c574;
+  --cream: #faf8f3;
+  --cream-dark: #f0ece2;
+  --text-primary: #1a1a1a;
+  --text-muted: #5a5a5a;
+  --text-light: #8a8a8a;
+  --border: #d8d2c2;
+  --accent: #92761f;
+  --bg-section: #ffffff;
+  --bg-alt: #f5f5f4;
+  --shadow: 0 4px 20px rgba(10, 22, 40, 0.08);
+  --shadow-lg: 0 8px 40px rgba(10, 22, 40, 0.12);
+  --ok: #2c5f3f;
+  --ok-light: #e6f0ea;
+  --info: #1f4e6b;
+  --info-light: #e3eef4;
+  --amber: #8a5a00;
+  --amber-light: #fef8ec;
+}
+
+/* ============= Top Bar ============= */
+.top-bar {
+  position: fixed; top: 0; left: 0; right: 0;
+  height: 64px;
+  background: var(--navy); color: white;
+  z-index: 1000;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+  display: flex; align-items: center;
+  padding: 0 32px; justify-content: space-between;
+}
+.top-bar .brand { display: flex; align-items: center; gap: 12px; }
+.top-bar .brand-mark {
+  width: 28px; height: 28px;
+  background: var(--gold); border-radius: 2px;
+  display: flex; align-items: center; justify-content: center;
+  color: var(--navy); font-weight: 900; font-size: 14px; letter-spacing: -0.5px;
+}
+.top-bar .brand-text { font-size: 14px; font-weight: 500; letter-spacing: 0.5px; }
+.top-bar .brand-text strong { color: var(--gold-light); font-weight: 700; }
+.top-bar .actions { display: flex; gap: 8px; align-items: center; }
+.lang-toggle {
+  display: flex;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 4px; overflow: hidden;
+}
+.lang-btn {
+  padding: 7px 14px; background: transparent;
+  color: rgba(255,255,255,0.6); border: none; cursor: pointer;
+  font-size: 12px; font-weight: 600; letter-spacing: 0.5px;
+  transition: all 0.2s; font-family: inherit;
+}
+.lang-btn:hover { color: white; background: rgba(255,255,255,0.05); }
+.lang-btn.active { background: var(--gold); color: var(--navy); }
+.btn-print {
+  padding: 7px 14px; background: rgba(255,255,255,0.08);
+  color: rgba(255,255,255,0.8); border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 4px; cursor: pointer; font-size: 12px; font-weight: 500; font-family: inherit;
+}
+.btn-print:hover { color: white; background: rgba(255,255,255,0.15); }
+
+/* ============= Layout ============= */
+.main {
+  margin-top: 64px;
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  max-width: 1440px;
+  margin-left: auto; margin-right: auto;
+}
+
+/* ============= Sidebar Nav ============= */
+.sidebar {
+  position: sticky; top: 64px;
+  height: calc(100vh - 64px);
+  overflow-y: auto;
+  background: var(--navy);
+  color: rgba(255,255,255,0.7);
+  padding: 24px 0;
+  font-size: 13px;
+}
+.sidebar h4 {
+  color: var(--gold);
+  font-size: 11px; font-weight: 700;
+  letter-spacing: 2px; text-transform: uppercase;
+  padding: 0 20px 10px 20px; margin-bottom: 8px;
+  border-bottom: 1px solid rgba(201, 164, 73, 0.2);
+}
+.sidebar ul { list-style: none; padding: 0; }
+.sidebar li {
+  padding: 8px 20px; cursor: pointer;
+  border-left: 3px solid transparent;
+  transition: all 0.15s; font-size: 12.5px; line-height: 1.4;
+}
+.sidebar li a { color: inherit; text-decoration: none; display: block; }
+.sidebar li:hover { color: white; background: rgba(255,255,255,0.04); border-left-color: var(--gold); }
+.sidebar li.active { color: white; background: rgba(201, 164, 73, 0.12); border-left-color: var(--gold); font-weight: 600; }
+
+/* ============= Content ============= */
+.content { padding: 60px 80px 100px 80px; max-width: 1040px; }
+
+/* ============= Hero ============= */
+.hero {
+  background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+  color: white;
+  padding: 80px 60px;
+  margin: -60px -80px 50px -80px;
+  position: relative; overflow: hidden;
+}
+.hero::before {
+  content: ''; position: absolute;
+  top: 0; right: 0;
+  width: 280px; height: 280px;
+  background: radial-gradient(circle, rgba(201, 164, 73, 0.18) 0%, transparent 70%);
+}
+.hero::after {
+  content: ''; position: absolute;
+  bottom: -80px; left: -40px;
+  width: 220px; height: 220px;
+  background: radial-gradient(circle, rgba(201, 164, 73, 0.10) 0%, transparent 70%);
+}
+.hero-kicker {
+  font-size: 12px; color: var(--gold);
+  letter-spacing: 4px; text-transform: uppercase;
+  font-weight: 600; margin-bottom: 24px;
+  position: relative; z-index: 1;
+}
+.hero h1 {
+  font-size: 48px; font-weight: 900;
+  letter-spacing: -1px; line-height: 1.08;
+  margin-bottom: 20px;
+  position: relative; z-index: 1;
+}
+.hero h1 .accent { color: var(--gold); }
+.hero-subtitle {
+  font-size: 20px; font-weight: 300;
+  color: rgba(255,255,255,0.88);
+  margin-bottom: 40px; max-width: 780px;
+  position: relative; z-index: 1;
+}
+.hero-meta {
+  display: flex; gap: 32px;
+  margin-top: 30px; padding-top: 30px;
+  border-top: 1px solid rgba(255,255,255,0.15);
+  flex-wrap: wrap;
+  position: relative; z-index: 1;
+}
+.hero-meta .item { font-size: 12px; color: rgba(255,255,255,0.65); }
+.hero-meta .item strong {
+  display: block; color: var(--gold-light);
+  font-size: 26px; font-weight: 700; margin-bottom: 4px;
+  font-family: 'Playfair Display', serif;
+}
+.hero-meta .item .label {
+  letter-spacing: 1px; text-transform: uppercase; font-size: 10px;
+}
+
+/* ============= Chapters ============= */
+.chapter {
+  margin-bottom: 60px;
+  padding-bottom: 40px;
+  border-bottom: 1px solid var(--border);
+  scroll-margin-top: 80px;
+}
+.chapter:last-child { border-bottom: none; }
+.chapter h2.chapter-title {
+  font-size: 30px; font-weight: 700;
+  color: var(--navy);
+  letter-spacing: -0.5px;
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 3px solid var(--gold);
+  display: inline-block;
+}
+.chapter h3 {
+  font-size: 20px; font-weight: 700;
+  color: var(--navy);
+  margin-top: 32px; margin-bottom: 14px;
+  letter-spacing: -0.2px;
+}
+.chapter h4 {
+  font-size: 12px; font-weight: 700;
+  color: var(--accent);
+  margin-top: 20px; margin-bottom: 8px;
+  letter-spacing: 0.3px; text-transform: uppercase;
+}
+.chapter p {
+  font-size: 15px; line-height: 1.75;
+  margin-bottom: 16px;
+  color: var(--text-primary);
+  text-align: justify;
+}
+.chapter ul.bullets { list-style: none; padding-left: 0; margin-bottom: 16px; }
+.chapter ul.bullets li {
+  padding: 6px 0 6px 24px;
+  position: relative;
+  font-size: 14.5px; line-height: 1.6;
+  color: var(--text-primary);
+}
+.chapter ul.bullets li::before {
+  content: '▸'; position: absolute;
+  left: 8px; top: 7px;
+  color: var(--gold); font-weight: bold;
+}
+
+/* ============= Bilingual Toggle ============= */
+.es-text { display: block; }
+.en-text { display: none; }
+body.lang-en .es-text { display: none; }
+body.lang-en .en-text { display: block; }
+
+/* ============= Tables ============= */
+.tbl {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 24px 0;
+  font-size: 13px;
+  box-shadow: var(--shadow);
+  background: white;
+}
+.tbl thead th {
+  background: var(--navy); color: white;
+  padding: 12px 14px; text-align: left;
+  font-weight: 600; font-size: 12px;
+  letter-spacing: 0.5px; text-transform: uppercase;
+  border-bottom: 2px solid var(--gold);
+}
+.tbl tbody td {
+  padding: 11px 14px;
+  border-bottom: 1px solid var(--border);
+  color: var(--text-primary);
+  vertical-align: top;
+}
+.tbl tbody tr:nth-child(even) { background: var(--bg-alt); }
+.tbl tbody tr:hover { background: var(--cream); }
+
+/* ============= Info Boxes ============= */
+.info-box {
+  background: var(--cream);
+  border-left: 4px solid var(--gold);
+  padding: 20px 24px;
+  margin: 24px 0;
+  border-radius: 0 4px 4px 0;
+}
+.info-box h5 {
+  font-size: 12px; font-weight: 700;
+  color: var(--accent);
+  letter-spacing: 1px; text-transform: uppercase;
+  margin-bottom: 8px;
+}
+.info-box p { margin-bottom: 0; font-size: 14px; line-height: 1.65; }
+.info-box.ok { background: var(--ok-light); border-left-color: var(--ok); }
+.info-box.ok h5 { color: var(--ok); }
+.info-box.info { background: var(--info-light); border-left-color: var(--info); }
+.info-box.info h5 { color: var(--info); }
+.info-box.amber { background: var(--amber-light); border-left-color: var(--amber); }
+.info-box.amber h5 { color: var(--amber); }
+
+/* ============= Conclusion ============= */
+.conclusion {
+  background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+  color: white;
+  padding: 60px;
+  margin: 60px -80px -100px -80px;
+  border-top: 4px solid var(--gold);
+}
+.conclusion h2 {
+  color: var(--gold);
+  font-size: 28px;
+  margin-bottom: 24px;
+  font-weight: 700;
+}
+.conclusion p {
+  color: rgba(255,255,255,0.88);
+  font-size: 15px;
+  margin-bottom: 16px;
+  line-height: 1.75;
+}
+
+/* ============= Footer ============= */
+.footer-bar {
+  background: var(--navy);
+  color: rgba(255,255,255,0.5);
+  text-align: center;
+  padding: 24px;
+  font-size: 11px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-top: -1px;
+}
+
+/* ============= Print ============= */
+@media print {
+  .top-bar, .sidebar, .btn-print, .lang-toggle { display: none !important; }
+  .main { display: block; margin: 0; max-width: none; }
+  .content { padding: 30px; max-width: none; }
+  .hero { background: white !important; color: black !important; padding: 30px 0; margin: 0 0 30px 0; }
+  .hero h1, .hero-subtitle, .hero-meta, .hero-kicker { color: black !important; }
+  .hero h1 .accent { color: var(--accent) !important; }
+  .chapter { page-break-inside: avoid; }
+  body.lang-en .es-text { display: none !important; }
+  body.lang-en .en-text { display: block !important; }
+  body.lang-es .es-text { display: block !important; }
+  body.lang-es .en-text { display: none !important; }
+}
+
+/* ============= Responsive ============= */
+@media (max-width: 1024px) {
+  .main { grid-template-columns: 1fr; }
+  .sidebar { display: none; }
+  .content { padding: 30px 24px 80px 24px; }
+  .hero { padding: 50px 24px; margin: -30px -24px 30px -24px; }
+  .hero h1 { font-size: 34px; }
+  .hero-subtitle { font-size: 17px; }
+  .conclusion { margin: 30px -24px -80px -24px; padding: 30px 24px; }
+  .chapter h2.chapter-title { font-size: 24px; }
+}
+  </style>
+</head>
+<body class="lang-es">
+
+<!-- Top Bar -->
+<div class="top-bar">
+  <div class="brand">
+    <div class="brand-mark">LP</div>
+    <div class="brand-text">
+      <strong>ISLA LA PORCADA</strong>
+      <span class="es-text">· ENERGÍA, AGUA &amp; RESIDUOS (MASTER PLAN)</span>
+      <span class="en-text">· ENERGY, WATER &amp; WASTE (MASTER PLAN)</span>
+    </div>
+  </div>
+  <div class="actions">
+    <div class="lang-toggle">
+      <button class="lang-btn active" id="btn-es" onclick="switchLang('es')">ES</button>
+      <button class="lang-btn" id="btn-en" onclick="switchLang('en')">EN</button>
+    </div>
+    <button class="btn-print" onclick="window.print()" title="Imprimir / Print">
+      <span class="es-text">⎙ Imprimir Documento</span>
+      <span class="en-text">⎙ Print Document</span>
+    </button>
+  </div>
+</div>
+
+<!-- Main Layout -->
+<div class="main">
+  <!-- Sidebar Navigation -->
+  <aside class="sidebar">
+    <h4>
+      <span class="es-text">Navegación de Capítulos</span>
+      <span class="en-text">Chapter Navigation</span>
+    </h4>
+    <ul>
+      <li class="active"><a href="#ch01"><span class="es-text">1. Doctrina y Marco Estratégico</span><span class="en-text">1. Doctrine &amp; Strategic Framework</span></a></li>
+      <li><a href="#ch02"><span class="es-text">2. Modelo Energético Integral</span><span class="en-text">2. Integrated Energy Model</span></a></li>
+      <li><a href="#ch03"><span class="es-text">3. Demanda y Perfil de Carga</span><span class="en-text">3. Demand &amp; Load Profile</span></a></li>
+      <li><a href="#ch04"><span class="es-text">4. Generación Solar Fotovoltaica</span><span class="en-text">4. Solar PV Generation</span></a></li>
+      <li><a href="#ch05"><span class="es-text">5. Generación Eólica y Soporte</span><span class="en-text">5. Wind &amp; Auxiliary Support</span></a></li>
+      <li><a href="#ch06"><span class="es-text">6. Almacenamiento BESS</span><span class="en-text">6. BESS Energy Storage</span></a></li>
+      <li><a href="#ch07"><span class="es-text">7. Generación de Respaldo Térmico</span><span class="en-text">7. Thermal Backup Generation</span></a></li>
+      <li><a href="#ch08"><span class="es-text">8. Microred Inteligente</span><span class="en-text">8. Smart Microgrid</span></a></li>
+      <li><a href="#ch09"><span class="es-text">9. Gobernanza Hídrica y Acuífero</span><span class="en-text">9. Water Governance &amp; Aquifer</span></a></li>
+      <li><a href="#ch10"><span class="es-text">10. Residuos y Hábitats Críticos</span><span class="en-text">10. Waste &amp; Critical Habitats</span></a></li>
+      <li><a href="#ch11"><span class="es-text">11. Eficiencia y Climatización</span><span class="en-text">11. Efficiency &amp; HVAC</span></a></li>
+      <li><a href="#ch12"><span class="es-text">12. Resiliencia y Continuidad</span><span class="en-text">12. Resilience &amp; Continuity</span></a></li>
+      <li><a href="#ch13"><span class="es-text">13. Métricas y KPIs ESG</span><span class="en-text">13. ESG KPIs &amp; Metrics</span></a></li>
+      <li><a href="#ch14"><span class="es-text">14. Inversión y Cronograma</span><span class="en-text">14. Investment &amp; Schedule</span></a></li>
+      <li><a href="#closing"><span class="es-text">Cierre y Dictamen Estratégico</span><span class="en-text">Closing &amp; Strategic Verdict</span></a></li>
+    </ul>
+  </aside>
+
+  <!-- Content -->
+  <main class="content">
+
+    <!-- Hero -->
+    <div class="hero">
+      <div class="hero-kicker">
+        <span class="es-text">VISIÓN 2040 – 2070 · PLAN DIRECTOR ISLA LA PORCADA</span>
+        <span class="en-text">VISION 2040 – 2070 · ISLA LA PORCADA MASTER PLAN</span>
+      </div>
+      <h1>
+        <span class="es-text">Mar a Lago del Pacífico<br><span class="accent">Energía, Agua &amp; Residuos</span></span>
+        <span class="en-text">Mar a Lago del Pacifico<br><span class="accent">Energy, Water &amp; Waste</span></span>
+      </h1>
+      <div class="hero-subtitle">
+        <span class="es-text">Doctrina de soberanía energética, gobernanza hídrica de manantial, captación bio-solar en cubiertas y vertido cero en santuario ecológico de manglares, tortugas y vida marina · Golfo de Chiriquí, Panamá</span>
+        <span class="en-text">Energy sovereignty doctrine, spring water governance, biosolar roof harvesting, and zero-discharge waste strategy in ecological sanctuary for mangroves, sea turtles, and marine life · Gulf of Chiriqui, Panama</span>
+      </div>
+      <div class="hero-meta">
+        <div class="item">
+          <strong>~95 %</strong>
+          <div class="label"><span class="es-text">Autosuficiencia renovable</span><span class="en-text">Renewable self-sufficiency</span></div>
+        </div>
+        <div class="item">
+          <strong>347 ha</strong>
+          <div class="label"><span class="es-text">Superficie insular protegida</span><span class="en-text">Protected island area</span></div>
+        </div>
+        <div class="item">
+          <strong>35–55 %</strong>
+          <div class="label"><span class="es-text">Agua de cubiertas bio-solares</span><span class="en-text">Biosolar roof harvested water</span></div>
+        </div>
+        <div class="item">
+          <strong>0 %</strong>
+          <div class="label"><span class="es-text">Efluentes a esteros / manglar</span><span class="en-text">Effluents to estuaries / mangroves</span></div>
+        </div>
+        <div class="item">
+          <strong>96 h</strong>
+          <div class="label"><span class="es-text">Autonomía isla garantizada</span><span class="en-text">Guaranteed island autonomy</span></div>
+        </div>
+        <div class="item">
+          <strong>LEED Plat.</strong>
+          <div class="label"><span class="es-text">Certificación objetivo</span><span class="en-text">Target certification</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Chapter 01 -->
+    <section class="chapter" id="ch01">
+      <h2 class="chapter-title">
+        <span class="es-text">1. Doctrina y Marco Estratégico</span>
+        <span class="en-text">1. Doctrine and Strategic Framework</span>
+      </h2>
+      <p><span class="es-text">El presente capítulo desarrolla la doctrina de energía, agua y gestión ambiental para la visión de largo plazo "Mar a Lago del Pacífico", proyectando a Isla La Porcada como el destino de ultralujo de referencia del Pacífico americano entre 2040 y 2070. La doctrina parte de una doble premisa: la isla debe operar como un sistema energéticamente soberano —capaz de sostener su operación 96 horas sin conexión exterior— y, simultáneamente, como un santuario ecológico inalterado. La presencia de ecosistemas frágiles de manglar, estuarios con reproducción de langostas y playas de anidación de tortugas marinas convierte la protección ambiental en el eje central del valor patrimonial del proyecto.</span><span class="en-text">This chapter develops the energy, water, and environmental management doctrine for the long-term vision "Mar a Lago del Pacífico", projecting Isla La Porcada as the benchmark ultra-luxury destination of the American Pacific between 2040 and 2070. The doctrine rests on a double premise: the island must operate as an energy-sovereign system —capable of sustaining its operation 96 hours without external connection— and, simultaneously, as an unaltered ecological sanctuary. The presence of fragile mangrove ecosystems, lobster breeding estuaries, and sea turtle nesting beaches makes environmental protection the core axis of the project's equity value.</span></p>
+      
+      <p><span class="es-text">El marco estratégico integra cinco dominios complementarios —generación renovable, almacenamiento BESS, microred inteligente, protección hidrogeológica del manantial con captación pluvial en cubiertas bio-solares y gestión de residuos de vertido cero— bajo un mando unificado denominado Dirección de Energía y Sostenibilidad (DES). Esta dirección coordina la operación con las autoridades panameñas (SNE, ETESA, MiAmbiente y ARAP) para asegurar el estricto cumplimiento normativo e internacional (LEED Platinum, WELL Building Standard y principios IFC).</span><span class="en-text">The strategic framework integrates five complementary domains —renewable generation, BESS storage, smart microgrid, spring hydrogeological protection with biosolar roof rainwater harvesting, and zero-discharge waste management— under a unified command called the Energy and Sustainability Directorate (DES). This directorate coordinates operations with Panamanian authorities (SNE, ETESA, MiAmbiente, and ARAP) to ensure strict compliance with international standards (LEED Platinum, WELL Building Standard, and IFC principles).</span></p>
+
+      <div class="info-box">
+        <h5><span class="es-text">PREMISA DE DISEÑO Y CUBIERTAS BIO-SOLARES</span><span class="en-text">DESIGN PREMISE &amp; BIOSOLAR ROOFS</span></h5>
+        <p><span class="es-text">El modelo está dimensionado para una demanda pico de 18,5 MW y un consumo anual de 95 GWh en escenario expansivo (3.750 personas pico), sobre una huella edificable respetuosa de 225.000 m². Las cubiertas ajardinadas con paneles fotovoltaicos integrados (arquitectura bio-solar en madera CLT para villas, hotel, hospital y mansiones) aportan ~10.000 kWp iniciales, optimizan la captura de lluvias tropicales torrenciales cortas y preservan el 100 % de los bosques de manglar y zonas costeras intactos.</span><span class="en-text">The model is sized for a peak demand of 18.5 MW and annual consumption of 95 GWh in the expansive scenario (3,750 peak people), over a respectful buildable footprint of 225,000 m². Green roofs with integrated photovoltaic panels (biosolar architecture on CLT timber for villas, hotel, hospital, and mansions) provide ~10,000 kWp initially, optimize capture of short torrential tropical rains, and preserve 100% of mangrove forests and coastal zones intact.</span></p>
+      </div>
+
+      <h3><span class="es-text">1.1. Marco Normativo Panameño Aplicable</span><span class="en-text">1.1. Applicable Panamanian Regulatory Framework</span></h3>
+      <table class="tbl">
+        <thead>
+          <tr>
+            <th><span class="es-text">Norma / Autoridad</span><span class="en-text">Standard / Authority</span></th>
+            <th><span class="es-text">Ámbito</span><span class="en-text">Scope</span></th>
+            <th><span class="es-text">Observaciones</span><span class="en-text">Notes</span></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Ley 45/2004 — Régimen Sectorial Eléctrico</td>
+            <td><span class="es-text">Generación distribuida y autogeneración</span><span class="en-text">Distributed generation and self-generation</span></td>
+            <td><span class="es-text">Marco para autoproductores &gt; 100 kW</span><span class="en-text">Framework for self-producers &gt; 100 kW</span></td>
+          </tr>
+          <tr>
+            <td>DGNTI-COPANIT 24-99</td>
+            <td><span class="es-text">Reutilización de Aguas Residuales Tratadas</span><span class="en-text">Treated Wastewater Reuse</span></td>
+            <td><span class="es-text">Estándar obligatorio para riego sin riesgo ecológico</span><span class="en-text">Mandatory standard for irrigation without ecological risk</span></td>
+          </tr>
+          <tr>
+            <td>DGNTI-COPANIT 35-2000</td>
+            <td><span class="es-text">Descarga de Efluentes Marinos</span><span class="en-text">Marine Effluent Discharge</span></td>
+            <td><span class="es-text">Criterios de vertido de salmuera y parámetros térmicos</span><span class="en-text">Brine discharge criteria and thermal parameters</span></td>
+          </tr>
+          <tr>
+            <td>Ley 41/1998 — Ley General de Ambiente (MiAmbiente)</td>
+            <td><span class="es-text">Evaluación de Impacto Ambiental (EIA Categoría III)</span><span class="en-text">Environmental Impact Assessment (EIA Category III)</span></td>
+            <td><span class="es-text">Protección de acuíferos, manglares y fauna marina</span><span class="en-text">Protection of aquifers, mangroves, and marine fauna</span></td>
+          </tr>
+          <tr>
+            <td>Resolución ARAP 01/2017</td>
+            <td><span class="es-text">Protección de Manglares y Recursos Acuáticos</span><span class="en-text">Protection of Mangroves and Aquatic Resources</span></td>
+            <td><span class="es-text">Cero alteración de esteros y zonas de crianza de langostas</span><span class="en-text">Zero alteration of estuaries and lobster breeding zones</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- Chapter 02 -->
+    <section class="chapter" id="ch02">
+      <h2 class="chapter-title">
+        <span class="es-text">2. Modelo Energético Integral</span>
+        <span class="en-text">2. Integrated Energy Model</span>
+      </h2>
+      <p><span class="es-text">El modelo energético de Isla La Porcada se concibe como una microred aislada híbrida de alta disponibilidad. Prioriza la captación solar fotovoltaica integrada en arquitecturas CLT (Cross-Laminated Timber) y pérgolas bio-solares sobre techos ajardinados de villas, hotel, hospital y mansiones, complementada con turbinas eólicas helicoidales de bajo impacto acústico para brisas nocturnas. El sistema BESS gestiona el balance de carga en tiempo real.</span><span class="en-text">Isla La Porcada's energy model is conceived as a high-availability hybrid isolated microgrid. It prioritizes solar photovoltaic capture integrated into CLT architectures and biosolar pergolas over green roofs of villas, hotel, hospital, and mansions, complemented by low-noise helical wind turbines for night breezes. The BESS system manages real-time load balance.</span></p>
+    </section>
+
+    <!-- Chapter 03 -->
+    <section class="chapter" id="ch03">
+      <h2 class="chapter-title">
+        <span class="es-text">3. Demanda y Perfil de Carga</span>
+        <span class="en-text">3. Demand &amp; Load Profile</span>
+      </h2>
+      <p><span class="es-text">El perfil de carga del complejo combina las necesidades climatológicas de confort de las suites boutique, hospital y mansiones residenciales con los consumos industriales de bombeo de agua, desalinización eventual, movilidad eléctrica (terrestre y náutica) y soporte logístico. La gestión activa de cargas permite desplazar consumos no críticos hacia las horas de máxima radiación solar.</span><span class="en-text">The complex's load profile combines comfort climate control requirements for boutique suites, hospital, and residential mansions with industrial power consumption for water pumping, backup desalination, electric mobility (land and marine), and logistical support. Active load management shifts non-critical power usage to peak solar hours.</span></p>
+    </section>
+
+    <!-- Chapter 04 -->
+    <section class="chapter" id="ch04">
+      <h2 class="chapter-title">
+        <span class="es-text">4. Generación Solar Fotovoltaica en Cubiertas Bio-Solares</span>
+        <span class="en-text">4. Solar PV Generation on Biosolar Roofs</span>
+      </h2>
+      <p><span class="es-text">Aprovechando la elevada irradiancia del Golfo de Chiriquí, el campo fotovoltaico distribuido sobre las cubiertas ajardinadas de villas, hotel, hospital y mansiones alcanzará una potencia instalada de 16 MWp en su fase consolidada. La integración sobre sustrato vegetal vivo genera un efecto de micro-refrigeración por evapotranspiración que reduce la temperatura de operación de las células solares, incrementando su eficiencia fotosensible entre un 8 % y un 12 % adicional frente a instalaciones tradicionales en cubierta seca.</span><span class="en-text">Leveraging the high irradiance of the Gulf of Chiriqui, the distributed photovoltaic field over green roofs of villas, hotel, hospital, and mansions will reach an installed capacity of 16 MWp in its consolidated phase. Integration over live plant substrate creates an evapotranspiration micro-cooling effect that reduces solar cell operating temperature, boosting photosensitive efficiency by an additional 8% to 12% compared to traditional dry roof installations.</span></p>
+    </section>
+
+    <!-- Chapter 05 -->
+    <section class="chapter" id="ch05">
+      <h2 class="chapter-title">
+        <span class="es-text">5. Generación Eólica y Soporte Auxiliar</span>
+        <span class="en-text">5. Wind Generation &amp; Auxiliary Support</span>
+      </h2>
+      <p><span class="es-text">Se integra una micro-generación eólica vertical (VAWT) de 1,5 MW diseminada en crestas topográficas sin impacto visual para captar la brisa marina nocturna. Su diseño silencioso (&lt;35 dB a 10 metros) previene perturbaciones a la avifauna de los manglares y garantiza el confort acústico absoluto de los huéspedes.</span><span class="en-text">A 1.5 MW vertical-axis wind micro-generation (VAWT) system is integrated along topographic ridges without visual impact to capture nocturnal sea breezes. Its silent design (&lt;35 dB at 10 meters) prevents disturbance to mangrove birdlife and guarantees total acoustic comfort for guests.</span></p>
+    </section>
+
+    <!-- Chapter 06 -->
+    <section class="chapter" id="ch06">
+      <h2 class="chapter-title">
+        <span class="es-text">6. Almacenamiento y Baterías BESS</span>
+        <span class="en-text">6. Energy Storage &amp; BESS Batteries</span>
+      </h2>
+      <p><span class="es-text">El sistema central BESS de fosfato de hierro y litio (LFP) con capacidad de 42 MWh actúa como el corazón del sistema eléctrico, amortiguando intermitencias fotovoltaicas, regulando frecuencia/voltaje y garantizando la transición instantánea (black-start) en caso de aislamiento total o fallos de generación.</span><span class="en-text">The central 42 MWh Lithium Iron Phosphate (LFP) BESS acts as the heartbeat of the electrical power grid, smoothing PV intermittency, regulating frequency/voltage, and ensuring seamless black-start transition in case of complete isolation or generation faults.</span></p>
+    </section>
+
+    <!-- Chapter 07 -->
+    <section class="chapter" id="ch07">
+      <h2 class="chapter-title">
+        <span class="es-text">7. Generación de Respaldo Térmico</span>
+        <span class="en-text">7. Thermal Backup Generation</span>
+      </h2>
+      <p><span class="es-text">La seguridad energética de último recurso se confía a un conjunto modular de generadores aptos para biodiésel sintético (HVO / B100). Ubicados en la central técnica soterrada, estos equipos cuentan con insonorización hospitalaria y filtros de partículas de tres vías para cero emisiones perceptibles.</span><span class="en-text">Last-resort energy security relies on a modular set of generators compatible with synthetic biodiesel (HVO / B100). Located in the underground technical plant, this equipment features hospital-grade soundproofing and three-way particulate filters for zero perceptible emissions.</span></p>
+    </section>
+
+    <!-- Chapter 08 -->
+    <section class="chapter" id="ch08">
+      <h2 class="chapter-title">
+        <span class="es-text">8. Microred Inteligente y Distribución</span>
+        <span class="en-text">8. Smart Microgrid &amp; Distribution</span>
+      </h2>
+      <p><span class="es-text">La red eléctrica de media tensión (13,8 kV) discurre 100 % canalizada bajo tierra a lo largo de los viales del complejo, eliminando postes y tendidos aéreos que comprometan el paisaje insular o arriesguen averías por tormentas tropicales. El sistema de control SCADA gestiona los flujos bidireccionales de energía de forma automatizada.</span><span class="en-text">The medium-voltage (13.8 kV) distribution grid runs 100% underground along complex pathways, eliminating poles and overhead lines that compromise the island landscape or risk damage from tropical storms. The SCADA control system automatically manages bidirectional energy flows.</span></p>
+    </section>
+
+    <!-- Chapter 09 REFINED -->
+    <section class="chapter" id="ch09">
+      <h2 class="chapter-title">
+        <span class="es-text">9. Gobernanza Hídrica: Manantial, Cubiertas Bio-Solares y Protección de Manglares</span>
+        <span class="en-text">9. Water Governance: Spring, Biosolar Roofs &amp; Mangrove Protection</span>
+      </h2>
+      
+      <p><span class="es-text">A diferencia de los cayos insulares estériles, Isla La Porcada cuenta con un recurso hidrogeológico excepcional: un manantial natural de agua dulce, una lente freática subterránea renovable de gran calidad y un régimen de lluvias tropicales intensas. La estrategia hídrica del complejo combina la <strong>extracción sostenible del manantial</strong> con la <strong>captación pluvial avanzada en cubiertas bio-solares</strong> (techos ajardinados con placas solares en villas, hotel, hospital y mansiones). Este diseño bioclimático absorbe los aguaceros de gran intensidad y corta duración característicos de la zona, utilizando el sustrato vegetal como prefiltro natural y laminador de escorrentía.</span><span class="en-text">Unlike barren island cays, Isla La Porcada features an exceptional hydrogeological resource: a natural freshwater spring, a high-quality renewable subterranean phreatic lens, and intense tropical rainfall. The complex's water strategy combines <strong>sustainable spring extraction</strong> with <strong>advanced rainwater harvesting on biosolar roofs</strong> (green roofs with solar panels on villas, hotel, hospital, and mansions). This bioclimatic design absorbs high-intensity, short-duration tropical downpours, using the plant substrate as a natural pre-filter and runoff laminator.</span></p>
+
+      <h3><span class="es-text">9.1. Rendimiento Hídrico por Tipología Edificatoria (Cubiertas Bio-Solares)</span><span class="en-text">9.1. Water Yield by Building Typology (Biosolar Roofs)</span></h3>
+      <p><span class="es-text">El aprovechamiento del agua de lluvia recolectada mediante las cubiertas ajardinadas sobre estructura CLT aporta porcentajes directos de autosuficiencia según el uso y la superficie del inmueble:</span><span class="en-text">Rainwater harvesting via green roofs on CLT structures yields direct self-sufficiency percentages according to building use and roof area:</span></p>
+
+      <ul class="bullets">
+        <li><strong><span class="es-text">Villas Residenciales:</span><span class="en-text">Residential Villas:</span></strong> <span class="es-text">Las cubiertas bio-solares individuales captan y filtran agua pluvial suficiente para cubrir de forma directa entre el <strong>35 % y el 40 % del consumo total de agua</strong> de la villa (destinado a sanitarios, cisternas, lavandería, climatización y riego de áreas privadas).</span><span class="en-text">Individual biosolar roofs capture and filter sufficient rainwater to directly cover <strong>35% to 40% of the villa's total water consumption</strong> (allocated for toilets, flushing, laundry, HVAC, and private irrigation).</span></li>
+        <li><strong><span class="es-text">Hotel de Ultralujo (Aman) y Mansiones:</span><span class="en-text">Ultra-Luxury Hotel (Aman) &amp; Mansions:</span></strong> <span class="es-text">Dada la extensa superficie contigua de tejado ajardinado en relación con su volumen operativo, la captación pluvial en el Hotel y Mansiones cubre entre un <strong>50 % y un 55 % de las necesidades hídricas diarias</strong> del edificio, reduciendo drásticamente la exigencia sobre el manantial y los depósitos centrales.</span><span class="en-text">Given the extensive contiguous green roof area relative to operational volume, rainwater harvesting at the Hotel and Mansions covers <strong>50% to 55% of daily water requirements</strong>, drastically reducing demand on the spring and central storage.</span></li>
+        <li><strong><span class="es-text">Complejo Hospitalario y Servicios Centrales:</span><span class="en-text">Hospital Complex &amp; Central Services:</span></strong> <span class="es-text">Las grandes cubiertas bio-solares del Hospital alimentan circuitos cerrados sanitarios y torres de refrigeración tras pasar por una etapa de esterilización avanzada (ultrafiltración + desinfección UV/Ozono), aportando hasta un <strong>45-50 % de su demanda operativa no potable y técnica</strong>.</span><span class="en-text">The large biosolar roofs of the Hospital supply closed sanitary loops and cooling towers after advanced sterilization (ultrafiltration + UV/Ozone disinfection), providing up to <strong>45-50% of its non-potable and technical operational demand</strong>.</span></li>
+      </ul>
+
+      <h3><span class="es-text">9.2. Hidrogeología y Extracción Sostenible del Acuífero</span><span class="en-text">9.2. Hydrogeology &amp; Sustainable Aquifer Extraction</span></h3>
+      <p><span class="es-text">El complemento del manantial natural y pozos subterráneos se gestiona rigurosamente para garantizar la salubridad y la protección del hábitat:</span><span class="en-text">The support from the natural spring and underground wells is strictly managed to guarantee health standards and habitat protection:</span></p>
+
+      <ul class="bullets">
+        <li><strong><span class="es-text">Explotación del Manantial (Gravedad y Bombeo Solar):</span><span class="en-text">Spring Exploitation (Gravity &amp; Solar Pumping):</span></strong> <span class="es-text">El caudal del manantial se capta mediante un sistema de pozos de infiltración perimetrales de baja succión, impulsados exclusivamente con energía solar directa. Se establece un límite estricto de extracción (máximo 35 % de la recarga anual estimada por el estudio piezométrico) para evitar la subsidencia del terreno y prevenir la intrusión salina en las raíces de los manglares.</span><span class="en-text">The spring's flow is captured via low-suction perimeter infiltration wells, driven exclusively by direct solar energy. A strict extraction limit is established (maximum 35% of annual recharge estimated by piezometric study) to prevent land subsidence and avoid saltwater intrusion into mangrove roots.</span></li>
+        <li><strong><span class="es-text">Modelo Híbrido de Abastecimiento:</span><span class="en-text">Hybrid Supply Model:</span></strong> <span class="es-text">El agua del manantial y de las cubiertas bio-solares se destina al consumo humano y noble tras ultrafiltración y UV sin cloro agresivo. La planta SWRO (desaladora) queda como respaldo estratégico operativo para la temporada seca extrema (marzo-abril) o picos extraordinarios, reduciendo el consumo energético de bombeo en un 75 % en régimen ordinario.</span><span class="en-text">Spring and biosolar roof water is allocated for human and noble consumption after ultrafiltration and UV without aggressive chlorine. The SWRO plant remains as an operational strategic backup for extreme dry season (March-April) or extraordinary peaks, reducing pumping energy consumption by 75% under ordinary regimes.</span></li>
+        <li><strong><span class="es-text">Almacenamiento Estratégico de Reserva:</span><span class="en-text">Strategic Backup Storage:</span></strong> <span class="es-text">Se disponen dos tanques semienterrados de hormigón pretensado con recubrimiento de grado alimenticio de 10.000 m³ cada uno (20.000 m³ totales), garantizando 8 días continuos de autonomía hídrica a máxima ocupación sin alterar los caudales del manantial.</span><span class="en-text">Two semi-buried prestressed concrete tanks with food-grade lining of 10,000 m³ each (20,000 m³ total) provide 8 continuous days of water autonomy at peak occupancy without altering spring flows.</span></li>
+      </ul>
+
+      <h3><span class="es-text">9.3. Balance Hídrico y Matriz de Abastecimiento</span><span class="en-text">9.3. Water Balance &amp; Supply Matrix</span></h3>
+      <table class="tbl">
+        <thead>
+          <tr>
+            <th><span class="es-text">Fuente / Proceso</span><span class="en-text">Source / Process</span></th>
+            <th><span class="es-text">Capacidad / Rendimiento</span><span class="en-text">Capacity / Yield</span></th>
+            <th><span class="es-text">Aporte y Uso Principal</span><span class="en-text">Contribution &amp; Primary Use</span></th>
+            <th><span class="es-text">Consumo Energético</span><span class="en-text">Energy Consumption</span></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Cubiertas Bio-Solares (Villas)</strong></td>
+            <td>35–40 % del consumo de villas</td>
+            <td>Agua para sanitarios, lavandería y riego privado</td>
+            <td>0,1 kWh/m³ (Gravedad / Filtración)</td>
+          </tr>
+          <tr>
+            <td><strong>Cubiertas Bio-Solares (Hotel &amp; Mansiones)</strong></td>
+            <td>50–55 % del consumo de hotel/mansiones</td>
+            <td>Climatización, cisternas y áreas comunes</td>
+            <td>0,15 kWh/m³ (Laminación / Filtrado)</td>
+          </tr>
+          <tr>
+            <td><strong>Cubiertas Bio-Solares (Hospital)</strong></td>
+            <td>45–50 % de demanda técnica del hospital</td>
+            <td>Circuitos cerrados técnicos y sanitarios</td>
+            <td>0,25 kWh/m³ (UV + Esterilización)</td>
+          </tr>
+          <tr>
+            <td><strong>Manantial Natural &amp; Pozos Dulces</strong></td>
+            <td>1.200 m³/día (Extracción controlada)</td>
+            <td>Consumo Humano / Agua Potable (WELL Std)</td>
+            <td>0,4 kWh/m³ (Filtración UV + Piezometría)</td>
+          </tr>
+          <tr>
+            <td><strong>Desalación SWRO (Respaldo Marino)</strong></td>
+            <td>1.500 m³/día (Mod. 2x750 N+1)</td>
+            <td>Reserva Estratégica Verano / Picos</td>
+            <td>3,2 kWh/m³ (con ERD Isobar)</td>
+          </tr>
+          <tr>
+            <td><strong>Regeneración MBR (AGAR/MBR)</strong></td>
+            <td>800 m³/día (Efluente reciclado)</td>
+            <td>Riego Subsuperficial / Cisternas / Paisaje</td>
+            <td>0,8 kWh/m³</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="info-box ok">
+        <h5><span class="es-text">BLINDAJE ECOLÓGICO DE MANGLARES Y FAUNA MARINA</span><span class="en-text">MANGROVE &amp; MARINE FAUNA ECOLOGICAL SHIELDING</span></h5>
+        <p><span class="es-text">Para proteger las áreas de desove de tortugas marinas en las playas arenosas y los criaderos naturales de langostas en las raíces de los manglares del Golfo de Chiriquí, se prohíbe terminantemente cualquier descarga de efluentes líquidos —incluso tratados— hacia los esteros o bahías interiores. Todo el caudal regenerado se reutiliza al 100 % en riego subsuperficial por goteo presurizado para paisajismo interior y campos de cultivo orgánico, evitando la escorrentía superficial de nutrientes (nitrógeno y fósforo).</span><span class="en-text">To protect sea turtle nesting areas on sandy beaches and natural lobster nurseries in the mangrove roots of the Gulf of Chiriqui, any discharge of liquid effluents —even treated ones— into estuaries or interior bays is strictly prohibited. 100% of the regenerated flow is reused in subsurface pressurized drip irrigation for interior landscaping and organic crop fields, preventing surface nutrient runoff (nitrogen and phosphorus).</span></p>
+      </div>
+    </section>
+
+    <!-- Chapter 10 REFINED -->
+    <section class="chapter" id="ch10">
+      <h2 class="chapter-title">
+        <span class="es-text">10. Gestión de Residuos Cero Impacto sobre Hábitats Críticos</span>
+        <span class="en-text">10. Zero Impact Waste Management on Critical Habitats</span>
+      </h2>
+
+      <p><span class="es-text">La proximidad de los bosques de manglar y la presencia de poblaciones de langostas y crustáceos bentónicos exigen un protocolo de bioseguridad ambiental estricto. Un vertido accidental de materia orgánica en descomposición, lixiviados o plásticos degradados en las aguas del archipiélago afectaría de forma irreversible la cadena trófica local. La estrategia adopta el modelo <strong>Residuo Cero a Vertedero</strong> (Zero Waste to Landfill) mediante segregación estricta en origen y economía circular interna.</span><span class="en-text">The proximity of mangrove forests and the presence of lobster populations and benthic crustaceans require a strict environmental biosecurity protocol. An accidental spill of decomposing organic matter, leachate, or degraded plastics into archipelago waters would irreversibly affect the local trophic chain. The strategy adopts a <strong>Zero Waste to Landfill</strong> model through strict source segregation and internal circular economy.</span></p>
+
+      <h3><span class="es-text">10.1. Ecocentro de Tratamiento Insular (ETI) y Bioseguridad</span><span class="en-text">10.1. Insular Waste Treatment Eco-Center (ETI) &amp; Biosecurity</span></h3>
+      <p><span class="es-text">Ubicado en la Zona Logística y de Servicios (soterrado y fuera del cono visual y acústico del complejo), el Ecocentro procesa las 4,5 toneladas/día de residuos proyectadas en temporada alta:</span><span class="en-text">Located in the Logistics &amp; Services Zone (underground, outside guest visual/acoustic range), the Eco-Center processes the projected 4.5 tons/day of waste during peak season:</span></p>
+
+      <ul class="bullets">
+        <li><strong><span class="es-text">Fracción Orgánica (~60 % / 2,7 t/día):</span><span class="en-text">Organic Fraction (~60% / 2.7 t/day):</span></strong> <span class="es-text">Procesada mediante un Digestor Anaerobio de Alta Tasa (Biodigestor termofílico). Produce ~220 m³/día de biogás para cocinas centrales y cogeneración, más un digestato estabilizado que se convierte en compost para el vivero insular, evitando la entrada de tierras o abonos externos que introduzcan plagas.</span><span class="en-text">Processed via a High-Rate Anaerobic Digester (Thermophilic Biodigester). Yields ~220 m³/day of biogas for central kitchens and cogeneration, plus stabilized digestate converted into compost for the island nursery, preventing imports of external soil or fertilizers that could introduce invasive pests.</span></li>
+        <li><strong><span class="es-text">Cero Plásticos de Un Uso en Costas:</span><span class="en-text">Zero Single-Use Plastics on Coasts:</span></strong> <span class="es-text">Prohibición absoluta de envases plásticos no compostables en todo el perímetro insular. Sustitución por polímeros de almidón de yuca y vidrio triturado internamente como arena de sílice para filtros. Se evita por completo que microplásticos lleguen al mar y sean ingeridos por larvas de langosta o tortugas.</span><span class="en-text">Absolute ban on non-compostable plastic packaging across the entire island perimeter. Replacement with cassava starch polymers and internally crushed glass for pool filters. Complete prevention of microplastics reaching the ocean and being ingested by lobster larvae or turtles.</span></li>
+        <li><strong><span class="es-text">Estanqueidad Total en el Ecocentro (ETI):</span><span class="en-text">Total Tightness in the Waste Eco-Center (ETI):</span></strong> <span class="es-text">El almacenamiento de la fracción orgánica y el proceso de digestión anaerobia se ejecutan en naves con soleras de doble contención estanca, eliminando cualquier riesgo de lixiviación hacia el nivel freático o filtración hacia los canales de marea de los manglares.</span><span class="en-text">Organic fraction storage and anaerobic digestion processes are carried out in facilities with double-sealed containment floors, eliminating any risk of leaching into the water table or filtering into mangrove tidal channels.</span></li>
+        <li><strong><span class="es-text">Iluminación Nocturna Protegida (Turtle-Friendly):</span><span class="en-text">Protected Nocturnal Lighting (Turtle-Friendly):</span></strong> <span class="es-text">Para proteger el desove de las tortugas marinas en las playas de Isla La Porcada, el balizamiento exterior e iluminación de senderos costeros utiliza exclusivamente LED de espectro ámbar/rojo (longitud de onda &gt;580 nm), evitando desorientar a los neonatos en su camino hacia el océano.</span><span class="en-text">To protect sea turtle nesting on Isla La Porcada beaches, exterior pathway and coastal lighting exclusively uses amber/red spectrum LED technology (wavelength &gt;580 nm), preventing hatchlings from becoming disoriented on their way to the ocean.</span></li>
+      </ul>
+
+      <h3><span class="es-text">10.2. Matriz de Valorización Cero Residuos</span><span class="en-text">10.2. Zero Waste Recovery Matrix</span></h3>
+      <table class="tbl">
+        <thead>
+          <tr>
+            <th><span class="es-text">Flujo de Residuo</span><span class="en-text">Waste Stream</span></th>
+            <th><span class="es-text">Tecnología Aplicada</span><span class="en-text">Applied Technology</span></th>
+            <th><span class="es-text">Subproducto Obtenido</span><span class="en-text">Obtained Subproduct</span></th>
+            <th><span class="es-text">Destino Interno Insular</span><span class="en-text">Internal Island Destination</span></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Orgánico Alimentario</td>
+            <td>Biodigestión Anaerobia Termofílica</td>
+            <td>Biogás (CH₄) + Compost bio-estabilizado</td>
+            <td>Cocinas del Complejo / Vivero de la Isla</td>
+          </tr>
+          <tr>
+            <td>Poda y Biomasa Leñosa</td>
+            <td>Triturado y Pirolisis Controlada</td>
+            <td>Biochar + Gas térmico</td>
+            <td>Enriquecimiento de suelo de cultivo orgánico</td>
+          </tr>
+          <tr>
+            <td>Envases de Vidrio</td>
+            <td>Trituradora Industrial de Rodillos</td>
+            <td>Arena de vidrio fina (0,5-2 mm)</td>
+            <td>Lecho filtrante de piscinas y senderos</td>
+          </tr>
+          <tr>
+            <td>Aguas Negras y Grises</td>
+            <td>Biorreactor de Membrana (MBR + UV)</td>
+            <td>Agua Regenerada (Norma COPANIT 24-99)</td>
+            <td>Riego subsuperficial 100 % cerrado</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="info-box amber">
+        <h5><span class="es-text">BENEFICIO ESG Y CERTIFICACIÓN LEED PLATINUM</span><span class="en-text">ESG BENEFIT &amp; LEED PLATINUM CERTIFICATION</span></h5>
+        <p><span class="es-text">El modelo insular integrado convierte el 94 % del volumen total de residuos procesados en recursos útiles dentro de la propia isla. Esto elimina el tránsito logístico marítimo de basura hacia el continente en un 96 %, asegurando los créditos de <strong>LEED Materials &amp; Resources (MR)</strong> y consolidando el estatus de refugio ecológico de clase mundial.</span><span class="en-text">The integrated insular model converts 94% of processed waste volume into useful on-island resources. This reduces garbage maritime transit to the mainland by 96%, securing <strong>LEED Materials &amp; Resources (MR)</strong> credits and consolidating world-class eco-resort status.</span></p>
+      </div>
+    </section>
+
+    <!-- Chapter 11 -->
+    <section class="chapter" id="ch11">
+      <h2 class="chapter-title">
+        <span class="es-text">11. Eficiencia y Climatización Passivhaus en Cubiertas Bio-Solares</span>
+        <span class="en-text">11. Efficiency &amp; Passivhaus HVAC on Biosolar Roofs</span>
+      </h2>
+      <p><span class="es-text">El diseño arquitectónico tropical reduce las cargas térmicas en un 40 % mediante voladizos profundos, ventilación cruzada natural y la masa térmica amortiguadora que proporcionan las cubiertas ajardinadas bio-solares sobre estructura CLT en villas, hotel, hospital y mansiones. Los sistemas de climatización por expansión directa de alta eficiencia emplean refrigerantes ecológicos de ultra-bajo GWP (R-32 / R-290) y recuperación de calor para agua caliente sanitaria.</span><span class="en-text">Tropical architectural design reduces thermal loads by 40% through deep overhangs, natural cross-ventilation, and the thermal buffering mass provided by biosolar green roofs on CLT timber structures in villas, hotel, hospital, and mansions. High-efficiency direct expansion HVAC systems utilize ultra-low GWP eco-refrigerants (R-32 / R-290) and heat recovery for domestic hot water.</span></p>
+    </section>
+
+    <!-- Chapter 12 -->
+    <section class="chapter" id="ch12">
+      <h2 class="chapter-title">
+        <span class="es-text">12. Resiliencia y Continuidad de Negocio</span>
+        <span class="en-text">12. Resilience &amp; Business Continuity</span>
+      </h2>
+      <p><span class="es-text">Ante eventos meteorológicos extremos o huracanes en el Caribe/Pacífico, la infraestructura crítica (baterías, centros de transformación, plantas MBR y almacenamiento hídrico) se ubica por encima de la cota de inundación marina (+6,0 m NMM). El protocolo de contingencia garantiza 96 horas de autonomía funcional plena para huéspedes y personal.</span><span class="en-text">In the face of extreme weather events or storms, critical infrastructure (batteries, transformers, MBR plants, and water storage) is positioned above the storm surge elevation (+6.0m ASL). The contingency protocol guarantees 96 hours of full functional autonomy for guests and staff.</span></p>
+    </section>
+
+    <!-- Chapter 13 -->
+    <section class="chapter" id="ch13">
+      <h2 class="chapter-title">
+        <span class="es-text">13. KPIs y Métricas ESG</span>
+        <span class="en-text">13. KPIs &amp; ESG Metrics</span>
+      </h2>
+      <p><span class="es-text">Toda la operación técnica está sensorizada y auditada en tiempo real mediante un Gemelo Digital (Digital Twin). Se monitorizan de forma continua indicadores clave: intensidad energética por huésped (kWh/estancia), huella de carbono neta (Scope 1 y 2 = 0), porcentaje de captación pluvial bio-solar (35–55 % según tipología), índice de recirculación de agua (100 %) y salinidad de los piezómetros de control alrededor del manantial y manglares.</span><span class="en-text">The entire technical operation is instrumented and audited in real time via a Digital Twin. Key indicators are continuously monitored: energy intensity per guest (kWh/stay), net carbon footprint (Scope 1 & 2 = 0), biosolar rainwater harvesting ratio (35–55% by typology), water recycling index (100%), and salinity at monitoring piezometers around the spring and mangroves.</span></p>
+    </section>
+
+    <!-- Chapter 14 -->
+    <section class="chapter" id="ch14">
+      <h2 class="chapter-title">
+        <span class="es-text">14. Inversión y Cronograma de Ejecución</span>
+        <span class="en-text">14. Investment &amp; Execution Schedule</span>
+      </h2>
+      <p><span class="es-text">La inversión en infraestructura de autosuficiencia (Energía, Agua, Cubiertas Bio-Solares y Residuos) representa el 18 % del CAPEX total del desarrollo. Esta inversión estratégica amortiza su coste en un horizonte de 5,8 años debido a la reducción drástica del bombeo de agua, la mayor eficiencia energética fotovoltaica por micro-refrigeración vegetal y la eliminación del transporte de combustible fósil diésel masivo.</span><span class="en-text">Investment in self-sufficiency infrastructure (Energy, Water, Biosolar Roofs, and Waste) represents 18% of total development CAPEX. This strategic investment pays back within a 5.8-year horizon due to drastic reductions in water pumping, boosted PV energy efficiency via plant micro-cooling, and elimination of massive diesel fuel shipping.</span></p>
+    </section>
+
+    <!-- Closing -->
+    <div class="conclusion" id="closing">
+      <h2>
+        <span class="es-text">Cierre y Dictamen Estratégico</span>
+        <span class="en-text">Closing &amp; Strategic Verdict</span>
+      </h2>
+      <p><span class="es-text">La integración de un modelo energético renovable con la arquitectura bio-solar en cubiertas (villas, hotel, hospital y mansiones), la gobernanza responsable del manantial natural y la vertido cero hacia los manglares convierte a Isla La Porcada en el modelo definitivo de desarrollo insular de ultralujo sostenible a nivel global. El proyecto demuestra que la elegancia, la soberanía técnica y el rigor ecológico pueden coexistir en perfecta armonía en el Pacífico panameño.</span><span class="en-text">The integration of a renewable energy model with biosolar roof architecture (villas, hotel, hospital, and mansions), responsible natural spring governance, and zero-discharge toward mangroves turns Isla La Porcada into the definitive global benchmark for sustainable ultra-luxury island development. The project proves that elegance, technical sovereignty, and ecological rigor can coexist in perfect harmony in the Panamanian Pacific.</span></p>
+    </div>
+
+  </main>
+</div>
+
+<!-- Footer -->
+<footer class="footer-bar">
+  <span class="es-text">© 2026 ISLA LA PORCADA MASTER PLAN · PROPFASTINVEST GROUP LTD / SOTRATEC · TODOS LOS DERECHOS RESERVADOS</span>
+  <span class="en-text">© 2026 ISLA LA PORCADA MASTER PLAN · PROPFASTINVEST GROUP LTD / SOTRATEC · ALL RIGHTS RESERVED</span>
+</footer>
+
+<script>
+  function switchLang(lang) {
+    if (lang === 'en') {
+      document.body.classList.remove('lang-es');
+      document.body.classList.add('lang-en');
+      document.getElementById('btn-es').classList.remove('active');
+      document.getElementById('btn-en').classList.add('active');
+    } else {
+      document.body.classList.remove('lang-en');
+      document.body.classList.add('lang-es');
+      document.getElementById('btn-en').classList.remove('active');
+      document.getElementById('btn-es').classList.add('active');
+    }
+  }
+</script>
+
+</body>
+</html>
